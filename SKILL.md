@@ -27,7 +27,18 @@ JS snippets referenced below are in [reference.md](reference.md).
 
 ## 3. Add an internal work note
 
-On the ticket page, fill the textarea with placeholder "Add additional internal work notes." and click **Save Activity** (the small icon button next to the field is a filter, not submit). Verify that the note appears under "Internal Work Notes". Notes are written in English and dated by SCA.
+On the ticket page, fill the textarea with placeholder "Add additional internal work notes." and click **Save Activity** (the small icon button next to the field is a filter, not submit). Verify that the note appears under "Internal Work Notes". Notes are written in English, prefixed `[dd/mm/yyyy]`.
+- Wait ~5 s after the activity panel has loaded before filling the note: a save done right after load clears the textarea without saving.
+- Never retry blindly: poll up to 20 s for the note to appear, and if it does not, reload the ticket and check before re-adding (a quick retry created a duplicate note on Montmarault).
+
+### Assign a ticket to someone
+
+"Preparation Owner" field in the activity panel > click the owner name > search box "Assign User" > type the full name (first name alone returns dozens of homonyms) > tick the checkbox > add a note addressed to the person > **Save Activity**. The field is multi-select: the previous owner stays unless unticked.
+- Navigation, access, entrance or site-description issues: **Tim Oster** (toster, Charging Nav / UI / Site Maps).
+
+### Escalate to field teams
+
+Dashboard row > **Escalate** > "Escalate To Field Teams" (Preparation Status: Prepared) > Correction Codes: type a keyword (e.g. `Light`) and pick by mouse (e.g. `EN50SEN50E5405240 - Site level - Lighting (Restored)`) > Narrative: what to check on the next site visit > **Escalate**. Toast: "Activity Escalated Successfully"; the ticket leaves the AM dashboard.
 
 ## 4. Download ticket photos
 
@@ -128,6 +139,11 @@ For each ticket, collect: creation date, days in status, severity, number of lin
 - The Tesla GitHub MCP (github.tesla.com) returned 401 and is not used for this repo.
 - `activity-detail/<AC>` redirects to `product-details/...#activity-<AC>`, and CDP may fail with "Execution context was destroyed". Wait ~12 s after navigation, or navigate to the final product-details URL directly.
 - Teams search matches person names (e.g. "Aalst" = Andrea Van der Aalst). Do not treat those hits as site evidence.
+- Close dialog: the Close button can read as disabled for a few seconds after the note is filled. Poll up to ~8 s for it to enable before treating it as a blocker.
+- "WC" in AM notes can mean **Wall Connector** (e.g. Caen St Contest), not toilets. Check the vendor thread.
+- Email: drafts are created with `MailCompose` (reply_all on the latest vendor thread to keep history; LL emails from `shared_mailbox: superchargerhost@tesla.com`). Show the drafts and get explicit approval before `send`. Subject format: `Tesla | <Site>, <Country> | <Topic>` (French for FR/BE sites).
+- Vendor contacts: Circet Robin Fourton (Robin.FOURTON@circet.fr, coordinates regions; Circet Ouest Jeremi Citeau, Est Abdellah Alami, Anthony Sivignon), R2 Nicolas Vatbled (n.vatbled@r2e2.fr), SPIE Michel Oribe (michel.oribe@spie.com) and Benoit Collé (benoit.colle@spie.com), Facility Partner BE Frédéric Job (frederic@facilitypartner.be), Reeload BE Raf Seeldrayers, Dynamic Arthur Silva, BK World Björn Jantjes.
+- Leases are on SharePoint `globalcharging/.../Europe Sites/<Country>/01_Fully_Operational/<Site>/Lease/` (search `<Site> lease`). Read with `ReadFileContent` and grep the text for access/parking/fee clauses.
 
 ## Rules
 
