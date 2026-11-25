@@ -117,7 +117,6 @@ For each ticket, collect: creation date, days in status, severity, number of lin
 - **Keep open** when the problem recurs (several reports, High severity, photos showing non-EVs or idle cars). Action: LL/operator signage, enforcement, or parking marking.
 - **Closable** when it was a single report, it is older than ~45 days and nothing new came in. Note template: `Single ICEing report on <date>, no recurrence since. Closing - will reopen if new reports.`
 - Photos showing EVs parked without being plugged in point to idle fees or LL enforcement, not ICE signage.
-- **User decision (25/11/2026)**: ICEing tickets are closed with the note `No action to take.` even when recurrent, unless the user names an exception (Mons was kept open). Propose the batch, confirm the exceptions, then close.
 - ICEing tickets closed without a Fault Mode or Equipment prompt. A batch close in one JS loop works, but the dialog stops on the first blocker. The "Total Records" counter lags, so reload and check each AC.
 
 ## Lessons learned
