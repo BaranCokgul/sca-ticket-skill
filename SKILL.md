@@ -145,6 +145,17 @@ For each ticket, collect: creation date, days in status, severity, number of lin
 - Vendor contacts: Circet Robin Fourton (Robin.FOURTON@circet.fr, coordinates regions; Circet Ouest Jeremi Citeau, Est Abdellah Alami, Anthony Sivignon), R2 Nicolas Vatbled (n.vatbled@r2e2.fr), SPIE Michel Oribe (michel.oribe@spie.com) and Benoit Collé (benoit.colle@spie.com), Facility Partner BE Frédéric Job (frederic@facilitypartner.be), Reeload BE Raf Seeldrayers, Dynamic Arthur Silva, BK World Björn Jantjes.
 - Leases are on SharePoint `globalcharging/.../Europe Sites/<Country>/01_Fully_Operational/<Site>/Lease/` (search `<Site> lease`). Read with `ReadFileContent` and grep the text for access/parking/fee clauses.
 
+## Session log
+
+Factual record of what was done, to reuse as worked examples. Decisions here are NOT rules unless they also appear in "Rules".
+
+### 25/11/2026
+- Dashboard 71 -> 53. Closed: Narbonne/Rivesaltes duplicates (F-0154), Caylar (misattributed), 6 ICEing tickets (one-off user decision, Mons kept), Cesson ("Issue resolved"), Senlis (retrofit), Rivesaltes stickers ("Service has closed the case"), Rouen flood ("No action to take - checked with LL"), Arc-sur-Tille / Poitiers Sud / Mâcon / Magnant amenity tickets ("Resolved", all > 1 week old).
+- Beauvais lighting: escalated to field teams, code `Site level - Lighting (Restored)`, narrative "check the lighting poles at next visit".
+- Poitiers Futuroscope navigation: assigned to Tim Oster with a note.
+- Dated notes added on 10 tickets from vendor emails (Antwerp, Kortrijk, Le Bosc x2, Gap, Montmarault, Brest, Chasse, Montélimar, Caen).
+- Emails drafted (16): Falaise RFQ to R2 / Circet / SPIE separately (no vendor contacted yet), PO follow-ups citing PO numbers on existing threads (Saint-Parres, Laxou, Chasse, Montélimar), quote chasers (Brest, Montmarault), Narbonne to Circet+SPIE / SPIE / Facility Partner, R2 Caen WC removal check, EV Connexion sticker warning, Bègles drain to Klépierre LL, Roissy (Van der Valk Paris CDG, Avenue du Bois de la Pie) and Verviers (Valk, contract art. 1.1 open 24/7) kept as drafts for user review.
+
 ## Rules
 
 - Never close, edit or note a ticket without user confirmation of the list.
