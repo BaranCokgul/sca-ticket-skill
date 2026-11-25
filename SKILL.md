@@ -32,8 +32,9 @@ On the ticket page, fill the textarea with placeholder "Add additional internal 
 ## 4. Download ticket photos
 
 1. Ticket page > "Attachments" tab > collect `a[href*="dms-storage-api"]` (Download links).
-2. `fetch` is blocked (CORS). Open each link with `browser_navigate` in a **new tab**: the file lands in `%USERPROFILE%\Downloads` as `<guid>.tmp`.
-3. Check the magic bytes (`FF D8` = JPEG), copy the file to the target folder with an explicit name (`<Site>_<topic>_<AC>.jpg`), delete the `.tmp` files, and view the image to confirm it is usable.
+2. `fetch` is blocked (CORS). Open each link with `browser_navigate` in a **new tab**: the file lands in `%USERPROFILE%\Downloads` as `<guid>.tmp`, or under its original name (`.jpg`, `.heic`).
+3. **Download one file at a time and wait ~8 s** before moving it. Moving the newest file too early grabs the previous download and shifts every file by one. After a batch, check hashes (`Get-FileHash`): two identical hashes mean a shift. Check that the photo content matches the site (plates, shops, country).
+4. Check the magic bytes (`FF D8` = JPEG, `ftyp` at offset 4 = HEIC), move the file to the target folder with an explicit name (`<Site>_<topic>_<AC>.jpg`), and view the image to confirm it is usable. HEIC (iPhone) photos cannot be decoded on this PC (no HEIF codec, WPF gives a black image), so rely on the ticket text instead.
 4. Desktop is `C:\Users\bcokgul\OneDrive - Tesla\Desktop`.
 5. Closing a tab with `browser_tabs close` can close every tab, so re-navigate afterwards.
 
@@ -49,13 +50,23 @@ From the dashboard, the row's **Close** quick action opens "Close Activity <AC>"
 | "Please select Equipment before closing Activity" | Type `S` in "Select an equipment" and pick **Supercharger Site : SUPERCHARGER SITE STE...** (site-level item, first option). Use a post/cabinet only if the ticket is about one specific post. |
 | "Please submit all the required bolt forms" | The correction code is "No Valid Correction Code Found" (00003194), which triggers the "Persona Mapping/New Code Requests" form. Open the ticket > Correction Codes > **+ CORRECTION** > pick a valid code (see defaults) > Save > delete 00003194 (trash icon > Confirm) > **Save Activity** > close again from the dashboard. |
 
-The dropdowns are search textboxes: click them with `browser_click`/`browser_mouse_click_xy`, use `browser_type`, then click the option in a screenshot (option text is not exposed to JS). Inputs may be `pointer-events: none` during loading, so wait 2-3 s.
+The dropdowns are search textboxes:
+1. Open **one** dialog at a time. If dialogs stack, reload the dashboard. A JS-filled textarea can land in a hidden stale dialog.
+2. Click the field with `browser_mouse_click_xy` (fresh screenshot first), then `browser_type` with the returned ref.
+3. List the options with JS: `[...document.querySelectorAll('.tds-mpd__option-label')].map(o=>o.textContent.trim())`.
+4. Select with `browser_mouse_click_xy` on a fresh screenshot. A JS `.click()` on the option does not register.
+5. After selection the dialog reloads (spinner, "Fault Mode must be provided..." banner) for ~5 s, then shows only the note and an enabled Close button. Reading the Close button state immediately after opening can wrongly show it as disabled.
 
 ### Default fault modes (search keyword -> option)
 
-- Water / sealing / flood -> `F-7566 - Water Intrusion` (or `F-8827 - Pooling Water` for drains)
-- Enclosure damage -> `F-0003 - Enclosure - Water Damage` only if it is water, otherwise search "enclosure" / "damage"
-- Other topics: search "vandal", "damage", "light", "landscap", "sign", "bin" and take the closest. If nothing fits, keep the fault mode already on the ticket.
+There is no "landscaping", "vegetation" or "duplicate" fault mode. Typing "Site" lists the site-level ones.
+- Generic default (duplicates, landscaping, vegetation, misc site issue) -> `F-0154 - Site Damage`
+- ICEing / blocked stalls -> `F-8824 - Non-EV's blocking site` or `F-8839 - Site Partially Blocked`
+- Vandalism / graffiti -> `F-0004 - Site Vandalism`
+- Flooding -> `F-8841 - Site Flooded`. Water / sealing -> `F-7566 - Water Intrusion` (or `F-8827 - Pooling Water` for drains)
+- Enclosure door -> `F-7653 - Enclosure Door Issue`. Water in enclosure -> `F-0003 - Enclosure - Water Damage`
+- Snow -> `F-11532 - Snow Removal Needed - Full Site`
+- Access -> `F-11663 - Unable to Locate or Get to Site`
 
 ### Default correction codes
 
@@ -100,12 +111,21 @@ Scan the expanded dashboard for:
 - **Duplicate links**: CNOC agents paste "additional report: <AC>" links. The newest ticket is usually the duplicate.
 - Out-of-scope countries (e.g. Greece, Morocco) should be reassigned, not closed.
 
+## 8. ICEing tickets (blocked stalls)
+
+For each ticket, collect: creation date, days in status, severity, number of linked reports (CNOC notes "Multiple reports", "Additional report: <AC>"), customer note, and the photos (check that they show the right site).
+- **Keep open** when the problem recurs (several reports, High severity, photos showing non-EVs or idle cars). Action: LL/operator signage, enforcement, or parking marking.
+- **Closable** when it was a single report, it is older than ~45 days and nothing new came in. Note template: `Single ICEing report on <date>, no recurrence since. Closing - will reopen if new reports.`
+- Photos showing EVs parked without being plugged in point to idle fees or LL enforcement, not ICE signage.
+
 ## Lessons learned
 
 - The dialog text read right after clicking Close can be stale. If the table count dropped, the close worked. Confirm on the ticket page (Status: Closed).
 - Fuzed "Intervention maintenance" emails are payment kiosk works, not AM tickets. Outage permit emails do not prove a repair either.
 - MailSearch: `search_keywords` must go inside the `input` JSON string. Words with `-` or quoted phrases in OR lists cause KQL syntax errors.
-- The GitHub MCP (github.tesla.com) can return 401. Ask the user to re-authenticate it in Cursor. The skill folder is a local git repo, so push when access works.
+- The skill folder `~/.cursor/skills/sca-tickets` is a git repo whose remote is `https://github.com/BaranCokgul/sca-ticket-skill.git` (github.com, not github.tesla.com). After each skill update, commit with `git -c user.name="Baran Cokgul" -c user.email="bcokgul@tesla.com" commit -am "<msg>"` and run `git push`. Do not change the git config.
+- The Tesla GitHub MCP (github.tesla.com) returned 401 and is not used for this repo.
+- `activity-detail/<AC>` redirects to `product-details/...#activity-<AC>`, and CDP may fail with "Execution context was destroyed". Wait ~12 s after navigation, or navigate to the final product-details URL directly.
 - Teams search matches person names (e.g. "Aalst" = Andrea Van der Aalst). Do not treat those hits as site evidence.
 
 ## Rules
