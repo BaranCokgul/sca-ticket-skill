@@ -91,6 +91,23 @@ Reload the dashboard, expand all rows, check that the AC is gone and that "Total
 3. Closable only with explicit completion evidence (vendor "intervention OK / changement OK" + photos, LL confirmation). A released PO or a planned date is not completion: propose a follow-up note instead.
 4. Present closable tickets and follow-up updates separately, then ask what to do.
 
+## 7. Closable without new evidence (ticket content only)
+
+Scan the expanded dashboard for:
+- **Consolidated tickets**: a sibling ticket has a note like "Using this ticket to combine X + Y" or "Consolidating ... in one ticket". Close the absorbed ticket as duplicate of the one that carries the work.
+- **Same site, same issue**: two pre-departure inspections reporting the same thing (e.g. landscaping twice) are duplicates. Keep the oldest or the one with notes.
+- **Misattributed site**: a note says "not the right site" and the work is tracked elsewhere (another AC or a service ticket). Close with `ResolvedByOtherActivity` and reference the AC.
+- **Duplicate links**: CNOC agents paste "additional report: <AC>" links. The newest ticket is usually the duplicate.
+- Out-of-scope countries (e.g. Greece, Morocco) should be reassigned, not closed.
+
+## Lessons learned
+
+- The dialog text read right after clicking Close can be stale. If the table count dropped, the close worked. Confirm on the ticket page (Status: Closed).
+- Fuzed "Intervention maintenance" emails are payment kiosk works, not AM tickets. Outage permit emails do not prove a repair either.
+- MailSearch: `search_keywords` must go inside the `input` JSON string. Words with `-` or quoted phrases in OR lists cause KQL syntax errors.
+- The GitHub MCP (github.tesla.com) can return 401. Ask the user to re-authenticate it in Cursor. The skill folder is a local git repo, so push when access works.
+- Teams search matches person names (e.g. "Aalst" = Andrea Van der Aalst). Do not treat those hits as site evidence.
+
 ## Rules
 
 - Never close, edit or note a ticket without user confirmation of the list.
