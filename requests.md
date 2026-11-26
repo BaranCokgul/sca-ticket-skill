@@ -38,4 +38,12 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - EV Connexion | email doesn't work, Spanish company, Andrea will call, close | ticket already closed, topic closed | when an email fails for a third party, escalate by phone through a colleague.
 - Verviers | "j'ai envoyé" | my draft was gone (sent from Outlook), note added | user may send drafts himself from Outlook: check drafts/Sent before re-sending.
 - SCA | "c'est ouvert non ?" | yes, 12 follow-up notes added (Falaise, St-Parres, Laxou, Brest, Montmarault, Chasse, Montélimar, Narbonne, Caen, Bègles, Roissy, Verviers) | after sending emails, always log the follow-up note on each ticket.
+- Category A (Gallargues drains, Montélimar dup, Sénas vending, Gallargues toilets) | "close tout et mets des notes" | 4 closed with notes | evidence from vendor email + photos = closable; amenity rule confirmed again.
+- Gallargues | chase LL, car still there, find police station email | draft reply to LL + gendarmerie Aimargues phone (no public email) | abandoned car: LL (land owner) reports to gendarmerie; we provide plate/photo.
+- Bègles | Gallas replied, close | closed | LL says "on s'en occupe" on LL-owned infra = close.
+- Tournus | bins in good condition, close | closed (F-0154) | -
+- Dardilly | bin replaced, close | closed | -
+- Psathopyrgos | transfer to Andrea | Andrea Van der Aalst owner, note | Greece/Spain = Andrea (Southern Europe). Morocco IS in Baran's scope.
+- Futuroscope | check exchanges on code; if none, confirm same code to Tim and give ticket back | confirmed 1664, Tim sole owner | nav/access questions from Tim: answer + reassign to Tim.
+- Bruxelles | "je vois pas le ticket" | it is listed as "Brussels, Belgium" AC555307F84C96 | SCA uses English site names (Brussels, Antwerp, Kortrijk).
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -
