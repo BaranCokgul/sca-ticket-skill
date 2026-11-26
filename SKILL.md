@@ -166,4 +166,5 @@ Factual record of what was done, to reuse as worked examples. Decisions here are
 - Report every ticket that could not be closed, with the exact SCA message.
 - Amenity tickets (toilets clogged/out of order, lounge, coffee machine, fridge): older than 1 week -> close with `Resolved.`; 1 week old or less -> forward the case to Björn Jantjes (BK World, bjoern.jantjes@bk-group.eu). Still confirm the list with the user before closing.
 - PO released but no intervention date -> chase the vendor on the existing email thread (reply all) and quote the PO number and amount.
+- Never put vendors from different companies in the same email (to, cc or bcc). One email per company; colleagues of the same company can be in copy.
 - Emails to landlords: always leave them as drafts for the user to review, never send directly. Subject `Tesla | <Site>, <Country> | <Issue>`, written in French for French and Belgian sites.
