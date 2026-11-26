@@ -59,7 +59,9 @@ Requested by Baran on 26/11/2026. A local PowerShell timer (started in the chat,
 4. Append the events to `sites.md` and `requests.md`, write the current time to `.last_review`, commit and push.
 5. Post a short report in French: tickets closed, notes added, drafts waiting for approval, anything needing Baran.
 - If SCA asks for login or Outlook is down, report it and retry at the next slot. Never type credentials.
-- Start the timer (once per session; check the terminals folder first so it is not started twice): `Shell` with `block_until_ms: 0` and `notify_on_output` pattern `^AGENT_LOOP_TICK_sca_review`, running `scripts/review_timer.ps1`. It only runs while Cursor and this chat stay open.
+- Start the timer at the start of EVERY SCA session (check the terminals folder first so it is not started twice): `Shell` with `block_until_ms: 0` and `notify_on_output` pattern `^AGENT_LOOP_TICK_sca_review`, running `scripts/review_timer.ps1`. It polls the wall clock every 60 s and ticks as soon as a slot has passed without a review (`.last_review` older than the last slot), so missed slots (PC off, asleep, chat closed) are caught up immediately.
+- Windows scheduled task "SCA review reminder" (registered 26/11/2026, `scripts/review_reminder.ps1`): weekdays 09:05 / 13:05 / 16:05 + at logon (+5 min), StartWhenAvailable (runs missed slots after the PC was off). If a review is late, it opens Cursor and shows a popup asking Baran to type "revue" in the SCA chat. A fully headless review is not possible: no Cursor agent CLI on this PC, and Cursor cloud Automations cannot reach the local Outlook MCP.
+- When Baran types "revue" (or a tick arrives): restart the timer if it is not running, then run this section.
 
 ## 1. Login
 

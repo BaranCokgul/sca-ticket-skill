@@ -76,3 +76,10 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Pending drafts | Gallargues, Lesquin, Brussels sent (automation rule) | sent | -
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -
 - SCA | "SCA rebranché" | 7 closes already done by parallel session (dashboard 40 -> 33), 10 English notes added (Sénas, Deauville, Saint-Chamond, Megève x2, Chilly x2, Lesquin, Brussels, Gallargues) | reload dashboard before processing the queue.
+- Carcassonne | mail Arthur Silva (Dynamic) with photo + Robin for quote | 2 RFQs sent (EN to Dynamic, cc teslamaintenance@dynamiceu.com) | -
+- Rivesaltes | prepare LL mail, check mails first | LL = Groupe Duval (P. Dupont, G. Delafon), sent from superchargerhost with photo | -
+- Moulins | close, no picture | closed | -
+- Pontarlier | 'ok enlève' + Robin quote to put the bin back | kept open, RFQ sent | -
+- Mails | check for news | R2: Chilly gate under 1-year warranty; Gallargues LL started procedure + gendarmerie; notes added | -
+- Rodez | comment with lawyer update | EN note (free loan for use not transferred, cadastre, mortgage records AV 183 / AW 153, liquidator) | -
+- Schedule | restart 3x/day check, must restart even after PC off | timer with catch-up + Windows scheduled task reminder (StartWhenAvailable + logon) | headless not possible (no CLI, cloud cannot reach local MCP).

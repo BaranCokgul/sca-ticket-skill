@@ -18,3 +18,5 @@ Format: `date | context | what I did / proposed | correction | rule derived`
 - 26/11 | Pontarlier | proposed luminaire replacement | "pas besoin si l'éclairage fonctionne" | cosmetic damage on working lighting = no intervention.
 - 26/11 | Cleanliness | proposed vendors for litter | "propreté = LL, sauf sites avec prestataire de nettoyage" | cleanliness goes to LL unless Tesla has a cleaning vendor on site (e.g. GSF at Poitiers Sud).
 - 26/11 | SCA notes | some notes/templates in French | "tous les commentaires SCA en anglais" | SCA notes always in English.
+- 26/11 | Pontarlier bin | proposed to close | 'envoie à Robin pour devis pour remettre' | a bin out of its support is equipment to re-fix, not cosmetic: RFQ, do not close.
+- 26/11 | Carcassonne | proposed the site IP for graffiti | 'Arthur Silva (Dynamic) + Robin' | for graffiti/cleaning works, consult Dynamic (maintenance vendor) and Circet.

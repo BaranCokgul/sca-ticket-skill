@@ -37,3 +37,4 @@ Format: `date | site | AC | issue | closing note (EN) | why / who decided`
 - 26/11 | Ussac | AC555307AED233 | bent sign pole | closed (parallel session, confirmed 26/11 evening) | Baran: signage position is the real issue (remove all or nothing, to think), no ICEing yet, not urgent
 - 26/11 | Pontarlier | AC555307C6E2E5 | cracked luminaire diffuser | closed (parallel session, confirmed 26/11 evening) | Baran: no intervention while lighting works
 
+- 26/11 | Moulins-lès-Metz | AC555307FE12C3 | 'site clean up' with no detail/photo | 'Site clean up' request with no description and no picture. Nothing actionable. Closing. | Baran: close, no picture
