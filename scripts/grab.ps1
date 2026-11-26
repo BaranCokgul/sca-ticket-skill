@@ -8,10 +8,21 @@ $root = "C:\Users\bcokgul\OneDrive - Tesla\Desktop\SCA"
 $dest = Join-Path $root $Site
 New-Item -ItemType Directory -Force -Path $dest | Out-Null
 
-$f = Get-ChildItem $dl -File |
-  Where-Object { $_.LastWriteTime -gt (Get-Date).AddSeconds(-40) -and $_.Extension -notin '.crdownload', '.tmp.part' } |
-  Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$f = $null
+for ($i = 0; $i -lt 30 -and -not $f; $i++) {
+  $f = Get-ChildItem $dl -File |
+    Where-Object { $_.LastWriteTime -gt (Get-Date).AddSeconds(-60) -and $_.Extension -notin '.crdownload', '.part' } |
+    Sort-Object LastWriteTime -Descending | Select-Object -First 1
+  if (-not $f) { Start-Sleep -Seconds 1 }
+}
 if (-not $f) { "NO FILE"; exit 1 }
+$prev = -1
+for ($i = 0; $i -lt 30; $i++) {
+  $f.Refresh()
+  if ($f.Length -gt 0 -and $f.Length -eq $prev) { break }
+  $prev = $f.Length
+  Start-Sleep -Seconds 2
+}
 
 $b = [System.IO.File]::ReadAllBytes($f.FullName)
 $ext = '.bin'

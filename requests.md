@@ -50,4 +50,11 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Photos | download directly into a dedicated SCA folder on the Desktop | scripts/grab.ps1 -> Desktop\SCA\<Site>\ | -
 - LL replies | "prends en compte les retours des LL, update les tickets" | Verviers + Caen closed, notes on Falaise, Montmarault, Narbonne | explicit LL/vendor confirmation = close directly (rule validated).
 - Schedule | review emails morning / noon / afternoon and update or close tickets | review_timer.ps1, 9:00 / 13:00 / 16:00 weekdays | -
+- Brussels | any exchange with r.matterazzo@docksbruxsel.be? | yes: keypad 27/10 (LL: no malfunction), posts 2C/2D 20/11; reply draft with photos | search the LL contact + superchargerhost before saying "no exchange".
+- Tanger | escalate to field service, not an asset topic | already "Prepared" (escalated) | post skin = Service.
+- Riom | close "one off, to be monitored" | already closed by Baran 12:58 | for 1-2 old reports with no recurrence: close "One off, to be monitored".
+- Roissy | "c'est réglé, retour sur le site" | closed | trust Baran's site feedback even if not found in emails.
+- Narbonne, Montmarault | PR issued | notes added | -
+- Lesquin | draft to Bansar asking status | draft recreated with signature + photo | -
+- Pre-departure | open all, explain the problem, download photos myself | 19 tickets reviewed, photos in Desktop\SCA, Grid forms readable | always look at photos: categories are often wrong.
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -

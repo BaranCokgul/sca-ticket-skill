@@ -207,5 +207,30 @@ Format:
 ## Tangier, Morocco
 - In Baran's scope. AC555307BA5820: skin of post 1B damaged (pre-departure 30/09/2026).
 
+## Pre-departure / site tickets reviewed with photos (26/11/2026, photos in Desktop\SCA\<Site>)
+- Megève AC555307ACAC47: parking lines almost erased. AC555307ACAC4E: hole in the asphalt against the concrete base of post 2A. LL changed Casino -> Auchan (Anass updating contacts).
+- Ussac AC555307AED233: Supercharger sign pole bent and leaning near post 7D.
+- Pontarlier AC555307C6E2E5: lighting pole luminaire diffuser cracked. AC555307C6E2E7: bin pulled out of its support.
+- Deauville AC555307CFED28 (Carrefour Touques): brambles inside the technical enclosure, overgrown conifers/vegetation around cabinets.
+- Rivesaltes AC555307E234DA: decorative gravel from the central strip spilled onto stalls.
+- Sénas AC555307EE916F: bin moved off its base, anchoring hole left open with litter.
+- Carcassonne AC555307F23385: marker graffiti on the transformer kiosk doors.
+- Le Touquet AC555307F303CD: "no parking except EV" sign (municipal order) leaning, concrete foot unearthed.
+- Dardilly Nord AC555307F48EF5: filed as landscaping, really an overflowing bin with litter (single report 06/11).
+- Aire-sur-l'Adour AC555307F82D50 (Brico/Jardi): construction lift parked on post 3D + wrapped pallets on next stall (09/11). Baran checks if gone.
+- Poulet de Bresse AC555307FA6474: parking lines very faded.
+- Tossiat AC555307FA76B3: green spaces around the site not mowed (tall grass, brush).
+- Moulins-lès-Metz AC555307FE12C3: "site clean up" by tech Junior Ouattara 12/11, no detail, no photo.
+- Saint-Chamond AC555307FF8B53: bin no longer anchored (anchors pulled out of the slab), litter.
+- Chilly-Mazarin AC555308051933: litter in planting strips between posts, grass. AC555308051938: filed as bollards, really the technical enclosure gate lock not latching + vegetation by the stairs (security, cable cut + police complaint 24/11).
+- Champfleury AC55530810EDF1: dead leaves piled under/around cabinets in the technical zone.
+- Montauban AC555308144475: bin full, a little litter (created 26/11).
+
+## Brussels (Docks Bruxsel), Belgium
+- LL: Docks Bruxsel - Richard Matterazzo (Technical & Facilities Director, r.matterazzo@docksbruxsel.be, +32 484 441 829), Stephan Bartholomeus (Shopping Center Manager). Barrier code 5000. Vendor line painting: Reeload (Guilhem Verstraeten), done 21/09.
+- 27/10/2026: keypad reported to LL; 02/11 Bartholomeus "no malfunction on our side".
+- 20/11/2026: posts 2C/2D taped off; 23/11 Matterazzo: truck unloading 30 min.
+- AC555307F84C96: 3 reports (09/11, 25/11 x2) keypad not working, 5 min wait at intercom. 26/11: reply draft to Bartholomeus/Matterazzo with 2 photos (superchargerhost), waiting approval.
+
 ## Other open tickets without action yet (25/11/2026)
 Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarlier x2, Deauville, Tournus, Riom, Rivesaltes (stones), Carcassonne (vandalism), Le Touquet, Poulet de Bresse, Tossiat, Moulins-lès-Metz, Saint-Chamond, Chilly-Mazarin x2, Champfleury, Sénas x2 (AC555307A7F072 is really snack vending machines, to close/reassign), Gallargues x3, Aire-sur-l'Adour. Out of scope, to reassign: Tanger AC555307BA5820, Psathopyrgos AC55530803B673. Mons: kept open by user.

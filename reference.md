@@ -75,6 +75,36 @@ for(let i=0;i<20;i++){await sleep(1000);if(document.body.innerText.includes(note
 
 Batch pattern: for each ticket, one message with `browser_navigate` (activity-detail URL) + `AwaitShell` 12 s + this snippet. 12 notes in a row worked on 26/11/2026.
 
+## ticketPhotos (ticket page)
+
+```js
+(async()=>{const id='AC...';const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+for(let i=0;i<25&&!document.body.innerText.includes(id);i++)await sleep(1000);await sleep(3000);
+const tab=[...document.querySelectorAll('[role=tab]')].find(e=>/^Attachments/.test(e.innerText.trim()));if(tab){tab.click();await sleep(3000);}
+const links=[...new Set([...document.querySelectorAll('a')].filter(x=>/dms-storage/.test(x.href)).map(x=>x.href))];
+const since=new Date(Date.now()-2000).toISOString();
+for(const l of links){const a=document.createElement('a');a.href=l;document.body.appendChild(a);a.click();a.remove();await sleep(2500);}
+return JSON.stringify({since,count:links.length})})()
+```
+
+Then in PowerShell: `& scripts\grab_batch.ps1 -Site "<Site>" -Name "<Topic>" -Count <count> -Since ([datetime]"<since>").ToLocalTime() -AC <AC>`.
+
+## boltSitePhotos (Grid form tab)
+
+```js
+(async()=>{const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+for(let i=0;i<15&&![...document.querySelectorAll('img')].some(x=>x.src.startsWith('blob:'));i++)await sleep(1000);await sleep(2000);
+const seen=new Set();const items=[];
+for(const img of document.querySelectorAll('img')){if(!img.src.startsWith('blob:')||seen.has(img.src))continue;let el=img,lab=null;
+ for(let i=0;i<12&&el;i++){el=el.parentElement;const t=el&&el.innerText||'';const m=t.match(/^\s*Site Condition Issue (\d+)/);if(m){lab=m[1];break;}if(/Post Issue \d+|Charge Post Checks/.test(t))break;}
+ if(lab){seen.add(img.src);items.push({src:img.src,lab});}}
+const since=new Date(Date.now()-2000).toISOString();
+for(const it of items){const a=document.createElement('a');a.href=it.src;a.download='site_issue_'+it.lab+'.jpg';document.body.appendChild(a);a.click();a.remove();await sleep(1500);}
+return JSON.stringify({since,count:items.length,labels:items.map(i=>i.lab)})})()
+```
+
+One Bolt form can cover several tickets (one per Site Condition Issue): rename the files with the right AC afterwards.
+
 ## Read the owner / status of a ticket
 
 ```js
