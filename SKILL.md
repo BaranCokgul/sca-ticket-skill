@@ -63,8 +63,9 @@ Dashboard row > **Escalate** > "Escalate To Field Teams" (Preparation Status: Pr
 1. Ticket page > "Attachments" tab > collect `a[href*="dms-storage-api"]` (Download links).
 2. `fetch` is blocked (CORS). Open each link with `browser_navigate` in a **new tab**: the file lands in `%USERPROFILE%\Downloads` as `<guid>.tmp`, or under its original name (`.jpg`, `.heic`).
 3. **Download one file at a time and wait ~8 s** before moving it. Moving the newest file too early grabs the previous download and shifts every file by one. After a batch, check hashes (`Get-FileHash`): two identical hashes mean a shift. Check that the photo content matches the site (plates, shops, country).
-4. Check the magic bytes (`FF D8` = JPEG, `ftyp` at offset 4 = HEIC), move the file to the target folder with an explicit name (`<Site>_<topic>_<AC>.jpg`), and view the image to confirm it is usable. HEIC (iPhone) photos cannot be decoded on this PC (no HEIF codec, WPF gives a black image), so rely on the ticket text instead.
-4. Desktop is `C:\Users\bcokgul\OneDrive - Tesla\Desktop`.
+4. Right after each download, run `scripts/grab.ps1 -Site "<Site>" -Name "<Topic>" -AC <AC>` (in this skill folder). It takes the newest file in Downloads (last 40 s), detects the type from the magic bytes (`FF D8` = JPEG, `ftyp` = HEIC, PNG, PDF) and moves it to **`Desktop\SCA\<Site>\<Topic>_<AC>.<ext>`** (adds `_2`, `_3` if the name exists). Baran asked for this folder so he can find every ticket photo without clicking anything.
+5. View the image to confirm it is usable and matches the site. HEIC (iPhone) photos cannot be decoded on this PC (no HEIF codec), so rely on the ticket text instead.
+6. Desktop is `C:\Users\bcokgul\OneDrive - Tesla\Desktop`; the SCA photo root is `C:\Users\bcokgul\OneDrive - Tesla\Desktop\SCA`. Upload to email drafts from that folder.
 5. Closing a tab with `browser_tabs close` can close every tab, so re-navigate afterwards.
 
 ## 5. Close a ticket
