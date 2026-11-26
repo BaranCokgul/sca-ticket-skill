@@ -114,7 +114,7 @@ Format:
 - Tickets: AC55530774F24F bent sign (waiting vendor)
 - Still no quote, so no PO. Moving the sign to be seen with the DM.
 - 25/11/2026: note added (saved twice by mistake, the duplicate should be deleted).
-- 26/11/2026: chaser draft ready, not sent (user did not validate it yet).
+- 26/11/2026: quote chased with Robin + Anthony on the RFQ thread. Note added.
 
 ## Narbonne Sud, France
 - Vendors consulted: Circet (Robin Fourton), SPIE (Michel Oribe, Benoit Collé), Facility Partner (Frédéric Job, asked whether they work in France).
@@ -130,6 +130,7 @@ Format:
 - Tickets: AC5553080D396C "EV CONEXION" stickers on all posts, customers suspected a scam (closed by Service)
 - 25/11/2026: closed ("Service has closed the case").
 - 26/11/2026: warning email sent to hello@ / partners@evconnexion.com (stop stickers, right to send a formal notice reserved). Wording about the scam removed at user's request.
+- 26/11/2026: the email did not work. EV Connexion is a Spanish company; Andrea calls them instead. Topic closed on our side (ticket already closed).
 
 ## Rodez, France
 - LL refuses, legal dispute. Kept open.
@@ -161,8 +162,8 @@ Format:
 ## Verviers, Belgium
 - LL: Valk hotel, Nicolas Poncin (Nicolas.Poncin@valkliege.be), F. Breuer (f.breuer@valkwallonie.com), direction@hotelverviers.be.
 - Lease (SharePoint "Verviers - Tesla New 20210428.docx") art. 1.1: site open and accessible to Tesla customers 24/7/365. Nothing on fees.
-- Tickets: AC555307FE0B60 reception asks 5 EUR or a bar order for the exit ticket (waiting user)
-- 26/11/2026: draft ready, not sent. No sent email found; user thinks he already wrote, to confirm.
+- Tickets: AC555307FE0B60 reception asks 5 EUR or a bar order for the exit ticket (waiting LL)
+- 26/11/2026: user sent the email to the 3 Valk contacts himself. Note added.
 
 ## Other open tickets without action yet (25/11/2026)
 Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarlier x2, Deauville, Tournus, Riom, Rivesaltes (stones), Carcassonne (vandalism), Le Touquet, Poulet de Bresse, Tossiat, Moulins-lès-Metz, Saint-Chamond, Chilly-Mazarin x2, Champfleury, Sénas x2 (AC555307A7F072 is really snack vending machines, to close/reassign), Gallargues x3, Aire-sur-l'Adour. Out of scope, to reassign: Tanger AC555307BA5820, Psathopyrgos AC55530803B673. Mons: kept open by user.

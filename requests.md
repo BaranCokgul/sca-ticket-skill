@@ -34,4 +34,8 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Narbonne | "ne mets jamais deux prestataires d'entreprises différentes dans le même mail" ; "un mail par entreprise, même si plusieurs pour le même sujet" | Benoit (SPIE) removed from Circet mail, added cc to SPIE mail | RULE validated.
 - EV Connexion | remove the "possible scam" sentence | removed, sent | do not repeat customer suspicions to third parties.
 - Verviers | "j'ai déjà envoyé un mail non ?" | nothing found in Sent / superchargerhost, draft kept | search Sent + superchargerhost before drafting to a LL.
+- Montmarault | "tu peux l'envoyer aussi" | sent, note added | -
+- EV Connexion | email doesn't work, Spanish company, Andrea will call, close | ticket already closed, topic closed | when an email fails for a third party, escalate by phone through a colleague.
+- Verviers | "j'ai envoyé" | my draft was gone (sent from Outlook), note added | user may send drafts himself from Outlook: check drafts/Sent before re-sending.
+- SCA | "c'est ouvert non ?" | yes, 12 follow-up notes added (Falaise, St-Parres, Laxou, Brest, Montmarault, Chasse, Montélimar, Narbonne, Caen, Bègles, Roissy, Verviers) | after sending emails, always log the follow-up note on each ticket.
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -
