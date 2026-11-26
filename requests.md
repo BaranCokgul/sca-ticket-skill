@@ -46,4 +46,8 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Psathopyrgos | transfer to Andrea | Andrea Van der Aalst owner, note | Greece/Spain = Andrea (Southern Europe). Morocco IS in Baran's scope.
 - Futuroscope | check exchanges on code; if none, confirm same code to Tim and give ticket back | confirmed 1664, Tim sole owner | nav/access questions from Tim: answer + reassign to Tim.
 - Bruxelles | "je vois pas le ticket" | it is listed as "Brussels, Belgium" AC555307F84C96 | SCA uses English site names (Brussels, Antwerp, Kortrijk).
+- Falaise | "plastron pas un sujet, sujet est le massif et check des fondations" | Baran had already replied himself; my extra draft is a duplicate | post skin/plastron = Service team, not AM. Check Sent before drafting a reply.
+- Photos | download directly into a dedicated SCA folder on the Desktop | scripts/grab.ps1 -> Desktop\SCA\<Site>\ | -
+- LL replies | "prends en compte les retours des LL, update les tickets" | Verviers + Caen closed, notes on Falaise, Montmarault, Narbonne | explicit LL/vendor confirmation = close directly (rule validated).
+- Schedule | review emails morning / noon / afternoon and update or close tickets | review_timer.ps1, 9:00 / 13:00 / 16:00 weekdays | -
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -

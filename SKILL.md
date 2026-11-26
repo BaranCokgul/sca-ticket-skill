@@ -22,6 +22,21 @@ The goal is to handle SCA tickets autonomously over time.
 - When the same decision appears 2-3 times in `requests.md`, propose it as a rule. It goes into "Rules" only after Baran validates it.
 - Commit and push the skill at the end of each session.
 
+## 0b. Scheduled email review (9:00, 13:00, 16:00, weekdays)
+
+Requested by Baran on 26/11/2026. A local PowerShell timer (started in the chat, see "Start the timer" below) prints `AGENT_LOOP_TICK_sca_review` at each slot. On each tick:
+1. Read `.last_review` in this skill folder (ISO time of the previous review; default: 8 h ago).
+2. `MailSearch` the main mailbox and `shared_mailbox: superchargerhost@tesla.com` with `received_after` = that time, `top` 50, fields subject/from/receivedDateTime/bodyPreview. Ignore outage permits, invoices, newsletters and threads with no site in `sites.md` or the dashboard.
+3. For each vendor or LL reply about an open ticket, read the body if needed and act:
+   - Explicit completion ("intervention réalisée", "c'est fait", photos, LL confirms the fix or the rule) -> close the ticket with `closeTicketV2` and an evidence note.
+   - Quote, date, PO, partial answer, refusal -> add a dated note with `addNoteSafe`.
+   - LL says "on s'en occupe" on LL-owned infrastructure -> close (LL responsibility).
+   - A reply that needs an answer -> prepare a draft (never send), and list it in the report.
+4. Append the events to `sites.md` and `requests.md`, write the current time to `.last_review`, commit and push.
+5. Post a short report in French: tickets closed, notes added, drafts waiting for approval, anything needing Baran.
+- If SCA asks for login or Outlook is down, report it and retry at the next slot. Never type credentials.
+- Start the timer (once per session; check the terminals folder first so it is not started twice): `Shell` with `block_until_ms: 0` and `notify_on_output` pattern `^AGENT_LOOP_TICK_sca_review`, running `scripts/review_timer.ps1`. It only runs while Cursor and this chat stay open.
+
 ## 1. Login
 
 1. `browser_tabs list`, then `browser_navigate` to the dashboard.
@@ -196,7 +211,7 @@ Factual record of what was done, to reuse as worked examples. Decisions here are
 
 ## Rules
 
-- Never close, edit or note a ticket without user confirmation of the list.
+- Never close, edit or note a ticket without user confirmation of the list. Exception (validated 26/11/2026): when a vendor or LL email gives explicit evidence (work done, LL confirms the fix or takes it over), add the note or close the ticket directly, then report it.
 - Never fill Bolt forms with invented data. Fix the correction code instead, or ask the user.
 - Never type credentials.
 - Report every ticket that could not be closed, with the exact SCA message.

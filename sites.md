@@ -59,6 +59,7 @@ Format:
 - Tickets: AC555307A1A91A vandalised connector + "WC" = Wall Connector removal (waiting vendor)
 - PO released for the Wall Connector removal, intervention planned 05/11/2026.
 - 26/11/2026: R2 asked to confirm the removal was done, with photos.
+- 26/11/2026: R2 confirmed "intervention bien réalisée". Ticket closed.
 
 ## Cesson, France
 - Tickets: AC555307C8931A two posts damaged by a Model Y, police informed (closed)
@@ -81,7 +82,8 @@ Format:
 - Tickets: AC5553079D6F14 3D post leaning after vehicle impact, foundation moved, safety (waiting vendor)
 - No vendor had been contacted before 26/11.
 - 26/11/2026: RFQ sent separately to R2 (Nicolas Vatbled), Circet (Robin Fourton, cc Arnaud Bureau) and SPIE (Michel Oribe), 5 photos each.
-- 26/11/2026: Robin confirmed site built in 2025 by Arnaud, asked if the post front panel (plastron) should be replaced, asked Arnaud to quote. Reply drafted: quote in separate lines (diagnosis, re-level + foundation, plastron), check if warranty applies (site delivered 2025), date ASAP.
+- 26/11/2026: Robin confirmed site built in 2025 by Arnaud, asked if the post front panel (plastron) should be replaced, asked Arnaud to quote. Baran replied himself: plastron not needed (handled by Service), focus on the massif.
+- 26/11/2026: R2 sent a quote, intervention possible 21/12/2026. SPIE pending.
 
 ## Futuroscope (Poitiers), France
 - Tickets: AC555307EBB812 site access badly described (assigned)
@@ -130,12 +132,14 @@ Format:
 - Still no quote, so no PO. Moving the sign to be seen with the DM.
 - 25/11/2026: note added (saved twice by mistake, the duplicate should be deleted).
 - 26/11/2026: quote chased with Robin + Anthony on the RFQ thread. Note added.
+- 26/11/2026: Circet (David Simonin, david.simonin@circet.fr) sent the quote, can intervene the day after PO. Baran raising the PO.
 
 ## Narbonne Sud, France
 - Vendors consulted: Circet (Robin Fourton), SPIE (Michel Oribe, Benoit Collé), Facility Partner (Frédéric Job, asked whether they work in France).
 - Tickets: AC55530795BBDD vegetation inside the technical zone and in front of the fence (waiting vendor)
 - 29/10/2026: Robin asked to cut inside or also in front of the fence, and whether to clean the ground.
 - 26/11/2026: three separate emails: Circet (scope inside ZT + in front of fence + full ground cleaning), SPIE (Michel, cc Benoit), Facility Partner. 3 photos each.
+- 26/11/2026: Circet sent the quote, intervention maintained on 27/11, PO to follow. Facility Partner declined (no France activity, Belgium only).
 
 ## Poitiers Sud, France
 - Tickets: AC555307CB3140 toilets out of order, door stuck open (closed)
@@ -179,6 +183,7 @@ Format:
 - Lease (SharePoint "Verviers - Tesla New 20210428.docx") art. 1.1: site open and accessible to Tesla customers 24/7/365. Nothing on fees.
 - Tickets: AC555307FE0B60 reception asks 5 EUR or a bar order for the exit ticket (waiting LL)
 - 26/11/2026: user sent the email to the 3 Valk contacts himself. Note added.
+- 26/11/2026: F. Breuer (Van der Valk Province de Liège, CFO) confirmed parking is free for Tesla customers, reception will be briefed. Ticket closed.
 
 ## Tournus, France
 - Tickets: AC555307DD2FE2 bin to replace (closed)
