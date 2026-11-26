@@ -81,6 +81,7 @@ Format:
 - Tickets: AC5553079D6F14 3D post leaning after vehicle impact, foundation moved, safety (waiting vendor)
 - No vendor had been contacted before 26/11.
 - 26/11/2026: RFQ sent separately to R2 (Nicolas Vatbled), Circet (Robin Fourton, cc Arnaud Bureau) and SPIE (Michel Oribe), 5 photos each.
+- 26/11/2026: Robin confirmed site built in 2025 by Arnaud, asked if the post front panel (plastron) should be replaced, asked Arnaud to quote. Reply drafted: quote in separate lines (diagnosis, re-level + foundation, plastron), check if warranty applies (site delivered 2025), date ASAP.
 
 ## Futuroscope (Poitiers), France
 - Tickets: AC555307EBB812 site access badly described (assigned)

@@ -40,10 +40,19 @@ On the ticket page, fill the textarea with placeholder "Add additional internal 
 - Wait ~5 s after the activity panel has loaded before filling the note: a save done right after load clears the textarea without saving.
 - Never retry blindly: poll up to 20 s for the note to appear, and if it does not, reload the ticket and check before re-adding (a quick retry created a duplicate note on Montmarault).
 
-### Assign a ticket to someone
+### Assign / transfer a ticket to someone (proven method)
 
-"Preparation Owner" field in the activity panel > click the owner name > search box "Assign User" > type the full name (first name alone returns dozens of homonyms) > tick the checkbox > add a note addressed to the person > **Save Activity**. The field is multi-select: the previous owner stays unless unticked.
-- Navigation, access, entrance or site-description issues: **Tim Oster** (toster, Charging Nav / UI / Site Maps).
+"Assign" adds someone; "transfer" or "give back" means the other person becomes the **sole** owner, so Baran must be unticked.
+1. Open the ticket (`activity-detail/<AC>`), wait ~12-20 s until the panel shows "Activity Number:<AC>" (the first screenshot is often a spinner).
+2. Fresh screenshot > click the chevron next to "Preparation Owner" (around x=877, y=399 in the side panel) with `browser_mouse_click_xy`. A dropdown opens with the search box "Assign User" (ref in the snapshot, `searchbox` "Search") and the current owners ticked.
+3. `browser_type` the **full name** in the search box (e.g. `Andrea Van der Aalst`), wait ~3 s, fresh screenshot, check the job title under the name (e.g. "Sr. Market Asset Manager, Charging Southern Europe"), tick its checkbox by mouse.
+4. To remove Baran: `browser_fill` the search box with `""` to show the full list again, fresh screenshot, untick "Baran Cokgul" by mouse.
+5. Add the note in the textarea and click **Save Activity** via JS (the dropdown can stay open). The save also commits the owner change.
+6. Verify: read the text after "Preparation Owner" in `document.body.innerText`; it must list only the new owner.
+- Note template: `[dd/mm/yyyy] Hi <first name>, <what you need / answer>. Assigning the ticket (back) to you. Thanks!`
+- Owners by topic: navigation, access code, entrance or site description -> **Tim Oster** (toster, Charging Nav / UI / Site Maps). Greece, Spain and other Southern Europe sites -> **Andrea Van der Aalst** (avanderaalst, Sr. Market AM Southern Europe). Morocco is in Baran's scope (do not transfer).
+- When Tim asks a question in the notes (e.g. "is access code X correct?"), answer in the note and make Tim sole owner again.
+- A transferred ticket leaves Baran's dashboard ("Total Records" drops by 1).
 
 ### Escalate to field teams
 
@@ -62,7 +71,18 @@ Dashboard row > **Escalate** > "Escalate To Field Teams" (Preparation Status: Pr
 
 Always confirm the list of tickets to close with the user (AskQuestion) before closing.
 
-From the dashboard, the row's **Close** quick action opens "Close Activity <AC>" with a note field. Use the `closeTicket` snippet (it expands parent rows for child tickets). Then handle the blockers:
+From the dashboard, the row's **Close** quick action opens "Close Activity <AC>" with a note field. Use the `closeTicket` snippet (it expands parent rows for child tickets). Then handle the blockers.
+
+**Proven loop (7 closures in a row on 26/11/2026, no failure):**
+1. `browser_navigate` to the dashboard (reload before **each** ticket, so no stale dialog remains), wait ~10 s.
+2. Run `closeTicketV2` (reference.md): it waits for "Total Records", expands every group, opens Close on the row, fills the note, polls up to 10 s for the Close button to enable, clicks it, and returns `clicked close, total before N`.
+3. The next reload shows `total before N-1`: that is the confirmation the previous close worked.
+4. If it returns `close disabled: ... Please enter a Fault Mode`, the dialog is still open: fresh screenshot > click "Select a Fault Mode" (around x=476, y=398) > `browser_type` the keyword (e.g. `Site Damage`) > wait 2-3 s > fresh screenshot > click the option > wait ~7 s (dialog reloads, Fault Mode field disappears, Close turns blue) > fresh screenshot > click **Close**. Toast "Activity Closed".
+5. At the end, reload, expand all and check that none of the closed ACs is still listed.
+- Tickets with an existing fault mode (most RAI tickets) close directly. Tickets created manually or from Digiwrench without fault mode ask for one (e.g. Tournus "Bin need to be replaced" -> `F-0154 - Site Damage`).
+- The closing note is the internal note: write the evidence in it (who, when, what), no separate note needed.
+
+Blockers:
 
 | Dialog message | Fix |
 |---|---|
@@ -154,6 +174,11 @@ For each ticket, collect: creation date, days in status, severity, number of lin
 - Attach photos to every RFQ / LL / third-party email when the ticket has some, without asking the user to click anything: list the ticket's `dms-storage` links, open each one in a spare tab (it downloads silently to Downloads), wait ~7 s, move it with an explicit name, check the image, then `GetPresignedUploadUrl` -> `curl.exe -X PUT` with `Content-Type` + `Content-Range: bytes 0-(size-1)/size` -> `ConfirmUpload` -> `AttachFile` on each draft. If SCA has no attachment (photos only in the Bolt form), reuse the photos from a previous email with `DownloadAttachment` (base64 `content`). Shared-mailbox drafts accept files < 3 MB only.
 - Signature: drafts must end with Baran's signature block (name, "Sr. Market Asset Manager, Charging Western Europe", address, confidentiality line). For reply drafts, put the signature in the `body` of the reply/reply_all call; updating the body afterwards wipes the quoted thread. The Nova tool appends "Sent via Nova" automatically.
 - Vendor contacts: Circet Robin Fourton (Robin.FOURTON@circet.fr, coordinates regions; Circet Ouest Jeremi Citeau, Est Abdellah Alami, Anthony Sivignon), R2 Nicolas Vatbled (n.vatbled@r2e2.fr), SPIE Michel Oribe (michel.oribe@spie.com) and Benoit Collé (benoit.colle@spie.com), Facility Partner BE Frédéric Job (frederic@facilitypartner.be), Reeload BE Raf Seeldrayers, Dynamic Arthur Silva, BK World Björn Jantjes.
+- Replying to a thread whose last message was sent by Baran (`reply` / `reply_all`) addresses the draft to Baran himself. Fix it with an `update` of `to` only (keeps the quoted thread). Always check the `to` field returned by the tool.
+- To fix a typo in a reply draft, delete it and recreate the reply (updating the body wipes the quoted thread).
+- `AttachFile` can fail with "file service get failed" (500) on a given upload. Retrying the same file_id does not help: do a new `GetPresignedUploadUrl` + PUT + `ConfirmUpload` and attach the new file_id.
+- Police / gendarmerie for a site: search `lannuaire.service-public.gouv.fr/recherche?whoWhat=gendarmerie&where=<Commune>+(<CP>)` with `WebFetch`, take the nearest "Brigade de gendarmerie" (not "Peloton d'autoroute" unless the site is on the motorway), open its page for phone/address. Brigades publish no email. For an abandoned car, the land owner (LL) files the report; we give plate, photo and the brigade contact.
+- Bolt forms (`grid.tesla.com/forms/...`) need an SSO sign-in that fails in the embedded browser; use the ticket text and SCA attachments instead.
 - Leases are on SharePoint `globalcharging/.../Europe Sites/<Country>/01_Fully_Operational/<Site>/Lease/` (search `<Site> lease`). Read with `ReadFileContent` and grep the text for access/parking/fee clauses.
 
 ## Session log

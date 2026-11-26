@@ -40,6 +40,47 @@ b.click();await sleep(3500);
 return find()?'STILL LISTED (reload to confirm)':'closed';})()
 ```
 
+## closeTicketV2 (dashboard, preferred)
+
+Run right after loading the dashboard. Set `id` and `note`. Expands all groups itself, so no `parent` needed. Returns `clicked close, total before N`, `close disabled: <dialog text>` (blocker, dialog left open) or `row not found, total N`.
+
+```js
+(async()=>{const id='AC...';const note='...';const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+for(let i=0;i<20&&!document.querySelector('.tds-pagination-secondary--value');i++)await sleep(1000);await sleep(1500);
+const tot=document.querySelector('.tds-pagination-secondary--value').innerText;
+for(const b of document.querySelectorAll('tds-icon-button[aria-label="Expand"] button')){b.click();await sleep(400);}await sleep(1500);
+const find=()=>[...document.querySelectorAll('tbody tr')].find(r=>r.innerText.includes(id));
+let row=find();if(!row)return 'row not found, total '+tot;row.scrollIntoView({block:'center'});
+[...row.querySelectorAll('button,a')].find(b=>b.innerText.trim()==='Close').click();await sleep(2000);
+const dlg=[...document.querySelectorAll('.cdk-overlay-pane,[role=dialog],.tds-modal')].find(d=>d.innerText.includes('Close Activity '+id));
+if(!dlg)return 'no dialog';
+const t=dlg.querySelector('textarea');t.focus();t.value=note;t.dispatchEvent(new Event('input',{bubbles:true}));
+let b;for(let i=0;i<10;i++){await sleep(1000);b=[...dlg.querySelectorAll('button')].find(x=>x.innerText.trim()==='Close');if(b&&!b.disabled)break;}
+if(b.disabled)return 'close disabled: '+dlg.innerText.slice(0,500);
+b.click();await sleep(4000);return 'clicked close, total before '+tot})()
+```
+
+## addNoteSafe (ticket page, preferred)
+
+Waits for the ticket to load, skips if the note already exists, waits 5 s, saves, polls 20 s. Returns `saved`, `already there`, `not ready` or `not confirmed`.
+
+```js
+(async()=>{const id='AC...';const note='[dd/mm/yyyy] ...';const sleep=ms=>new Promise(r=>setTimeout(r,ms));let t;
+for(let i=0;i<30;i++){if(document.body.innerText.includes(id)){t=[...document.querySelectorAll('textarea')].find(x=>x.placeholder&&x.placeholder.startsWith('Add additional'));if(t)break;}await sleep(1000);}
+if(!t)return 'not ready';if(document.body.innerText.includes(note.slice(0,50)))return 'already there';
+await sleep(5000);t.click();t.focus();t.value=note;t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}));await sleep(1500);
+const b=[...document.querySelectorAll('button')].find(x=>x.innerText.trim()==='Save Activity');if(!b)return 'no save btn';b.click();
+for(let i=0;i<20;i++){await sleep(1000);if(document.body.innerText.includes(note.slice(0,50)))return 'saved';}return 'not confirmed'})()
+```
+
+Batch pattern: for each ticket, one message with `browser_navigate` (activity-detail URL) + `AwaitShell` 12 s + this snippet. 12 notes in a row worked on 26/11/2026.
+
+## Read the owner / status of a ticket
+
+```js
+(()=>{const s=document.body.innerText;const k=s.indexOf('Preparation Owner');return s.slice(k,k+80).replace(/\n/g,' ')+' | '+(s.match(/Status\n[^\n]*/)||[''])[0]})()
+```
+
 A row can still look listed right after closing because the table has not re-rendered. Reload the dashboard and check "Total Records" before retrying.
 
 ## addNote (ticket page)
