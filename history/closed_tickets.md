@@ -1,4 +1,4 @@
-# Closed tickets
+﻿# Closed tickets
 
 Every ticket closed (by the agent or by Baran), with the reason. Used to learn when a ticket is closable.
 Format: `date | site | AC | issue | closing note (EN) | why / who decided`
@@ -30,9 +30,10 @@ Format: `date | site | AC | issue | closing note (EN) | why / who decided`
 - 26/11 | Riom | AC555307E059FD | overflowing bins, 2 reports end Oct | One off (2 reports end of October), no recurrence since. To be monitored. | Baran (closed himself 12:58)
 - 26/11 | Roissy-en-France | AC555307A83871 | parking 15 min vs 1 h | Parking issue resolved on site (feedback received) | Baran: "c'est réglé, retour sur le site"
 - 26/11 | Aire-sur-l'Adour | AC555307F82D50 | construction lift on post 3D | pending close (SCA login) | Baran: 3D checked, recent sessions -> vehicle gone
-- 26/11 | Dardilly Nord | AC555307F48EF5 | overflowing bin (filed landscaping) | pending close | Baran: followed closely with BK
-- 26/11 | Montauban - Les Chaumes | AC555308144475 | bin full, one-off | pending close | agent reco, Baran agreed
-- 26/11 | Champfleury | AC55530810EDF1 | dead leaves under cabinets | pending close | Baran: nothing to do, techs should remove leaves themselves
-- 26/11 | Aire du Poulet de Bresse | AC555307FA6474 | faded lines | pending close | Baran: site closes next year, no investment
-- 26/11 | Ussac | AC555307AED233 | bent sign pole | pending close | Baran: signage position is the real issue (remove all or nothing, to think), no ICEing yet, not urgent
-- 26/11 | Pontarlier | AC555307C6E2E5 | cracked luminaire diffuser | pending close | Baran: no intervention while lighting works
+- 26/11 | Dardilly Nord | AC555307F48EF5 | overflowing bin (filed landscaping) | closed (parallel session, confirmed 26/11 evening) | Baran: followed closely with BK
+- 26/11 | Montauban - Les Chaumes | AC555308144475 | bin full, one-off | closed (parallel session, confirmed 26/11 evening) | agent reco, Baran agreed
+- 26/11 | Champfleury | AC55530810EDF1 | dead leaves under cabinets | closed (parallel session, confirmed 26/11 evening) | Baran: nothing to do, techs should remove leaves themselves
+- 26/11 | Aire du Poulet de Bresse | AC555307FA6474 | faded lines | closed (parallel session, confirmed 26/11 evening) | Baran: site closes next year, no investment
+- 26/11 | Ussac | AC555307AED233 | bent sign pole | closed (parallel session, confirmed 26/11 evening) | Baran: signage position is the real issue (remove all or nothing, to think), no ICEing yet, not urgent
+- 26/11 | Pontarlier | AC555307C6E2E5 | cracked luminaire diffuser | closed (parallel session, confirmed 26/11 evening) | Baran: no intervention while lighting works
+

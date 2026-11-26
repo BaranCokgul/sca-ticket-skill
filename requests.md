@@ -75,3 +75,4 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Chilly-Mazarin | when? find LL for cleanliness; IP for quote | opened 26/03/2026, inspection 17/11; LL GIE RMF mail sent (cc fixed t.ors@grandfrais.fr, photos added); R2 (IP, Romain Robinet) mail sent with 3 photos, warranty first | site < 1 year: IP / warranty first.
 - Pending drafts | Gallargues, Lesquin, Brussels sent (automation rule) | sent | -
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -
+- SCA | "SCA rebranché" | 7 closes already done by parallel session (dashboard 40 -> 33), 10 English notes added (Sénas, Deauville, Saint-Chamond, Megève x2, Chilly x2, Lesquin, Brussels, Gallargues) | reload dashboard before processing the queue.
