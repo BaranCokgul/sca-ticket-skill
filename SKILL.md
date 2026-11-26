@@ -20,7 +20,30 @@ The goal is to handle SCA tickets autonomously over time.
 - **After each user instruction**: append it to `requests.md` (date, site, request, action, pattern).
 - **After each action** (close, note, escalation, email sent, vendor/LL reply found): append a dated line to the site in `sites.md`, and create the site section if missing.
 - When the same decision appears 2-3 times in `requests.md`, propose it as a rule. It goes into "Rules" only after Baran validates it.
-- Commit and push the skill at the end of each session.
+- **History (training data for recommendations)**, in `history/`:
+  - `decisions.jsonl`: one JSON line per ticket decision: date, site, ac, type, observed, agent_reco, decision (Baran), action, reason, match (did my reco match his decision). Before recommending, grep it for the same type of issue and follow his past decisions.
+  - `closed_tickets.md`: every ticket closed (by me or by Baran) with the note and why.
+  - `corrections.md`: every correction from Baran. Read it before acting.
+  - `requests.md` (root): every instruction, verbatim-short, with the action taken.
+- **Save automatically**: after every batch of actions run `scripts/save.ps1 -Message "<what>"` (git add/commit/push). Never wait for the end of the session.
+
+## 0a. Autonomy (Baran, 26/11/2026)
+
+"Je veux que tout soit fait automatiquement, que je n'ai pas à y toucher."
+- When Baran gives an instruction, execute it end to end: send the emails (vendors from his mailbox, LLs from superchargerhost), close tickets, add notes, update files. Do not leave drafts for him to send and do not ask for approval.
+- When he says "OK with your reco", apply the recommendation fully.
+- Only ask when information is genuinely missing (unknown contact, ambiguous site) and cannot be found in the sources below.
+- Before sending anything, check Sent items and Drafts (main + superchargerhost) from the last hours: another session or Baran may already have done it. Reuse an existing draft (fix it, add photos) instead of creating a duplicate.
+- Every email: his signature + the ticket photos (contact sheet via `montage.ps1` when there are many).
+- After each email: add the dated English note on the SCA ticket.
+
+## 0c. Data sources
+
+- **Who built the site (IP) / DM / open date**: `TRT SuC France.xlsx` (SharePoint globalcharging, `.../Europe/Region Shared/France/`). `SearchSharePoint "TRT SuC France.xlsx"` then `ReadFileContent` (drive_item_id `01E652ANG77LS23WZOW5CI5THYZKILCB5Y`, drive_id `b!AgQlUz9YkEiEXxuqLcnnRehJGagFLGJBq_qP1wp9X8ie-x2bSErlTaSAHCo5Ip7y`). Output is big: parse `json_string.content`, save to %TEMP%\trt_france.md, grep the site. Sheet "DM Data" columns: SITE | stalls | WC | Solar | GPS | PSU | Region | Région RFP | Works QX | **DM** | **IP** | **Contact IP** | ... Sheet "TRT" has the open date; a second row for the same site = extension.
+- **Site < 1 year old** -> ask the IP who built it first (warranty), then quote.
+- **LL contacts**: search the main mailbox and superchargerhost first; otherwise `C:\Users\bcokgul\OneDrive - Tesla\Asset Management\Cursor\SCA\site_contacts.csv`.
+- **Site history** (RAI responses, contacts, health): `scripts/site_lookup.ps1 -Site "<name>"` reads `site_contacts.csv`, `rai-responses.csv`, `supercharger_site_health.csv` in the same folder (open date, RAI counts by category, last RAI comments, LL / emergency contacts).
+- Vendor emails seen: Circet Robin.FOURTON@circet.fr (main AM contact, South/Centre/Rhône-Alpes, also Normandy), Arnaud.BUREAU@circet.fr; SPIE michel.oribe@spie.com, benoit.colle@spie.com; R2 r.robinet@r2e2.fr, n.vatbled@r2e2.fr; BK bjoern.jantjes@bk-group.eu, Stefan.Maier@bk-group.eu.
 
 ## 0b. Scheduled email review (9:00, 13:00, 16:00, weekdays)
 
@@ -31,7 +54,7 @@ Requested by Baran on 26/11/2026. A local PowerShell timer (started in the chat,
    - Explicit completion ("intervention réalisée", "c'est fait", photos, LL confirms the fix or the rule) -> close the ticket with `closeTicketV2` and an evidence note.
    - Quote, date, PO, partial answer, refusal -> add a dated note with `addNoteSafe`.
    - LL says "on s'en occupe" on LL-owned infrastructure -> close (LL responsibility).
-   - A reply that needs an answer -> prepare a draft (never send), and list it in the report.
+   - A reply that needs a simple answer (date confirmation, access code, PO number, thanks) -> reply and send. Anything involving money or a commitment not yet agreed by Baran -> report it.
 4. Append the events to `sites.md` and `requests.md`, write the current time to `.last_review`, commit and push.
 5. Post a short report in French: tickets closed, notes added, drafts waiting for approval, anything needing Baran.
 - If SCA asks for login or Outlook is down, report it and retry at the next slot. Never type credentials.
@@ -215,11 +238,17 @@ Factual record of what was done, to reuse as worked examples. Decisions here are
 
 ## Rules
 
-- Never close, edit or note a ticket without user confirmation of the list. Exception (validated 26/11/2026): when a vendor or LL email gives explicit evidence (work done, LL confirms the fix or takes it over), add the note or close the ticket directly, then report it.
+- Execute Baran's instructions end to end without asking (see 0a). When a vendor or LL email gives explicit evidence (work done, LL confirms the fix or takes it over), add the note or close the ticket directly, then report it.
+- **All SCA notes and closing notes in English.** Emails to French/Belgian LLs and vendors in French.
+- **Cleanliness (litter, bins full, dirty site) = LL**, except sites where Tesla has its own cleaning vendor (e.g. GSF Athena at Poitiers Sud) or an amenity operator (BK sites, e.g. Sénas, Dardilly Nord). Broken / unanchored equipment (bin pulled out, hole) = vendor repair.
+- Small debris in the technical zone (leaves under cabinets) -> techs clean during their visit, close without RFQ.
+- Sites planned for closure (e.g. Aire du Poulet de Bresse, closing next year) -> no investment, close cosmetic tickets.
+- Cosmetic damage on equipment that still works (cracked luminaire with working lighting) -> no intervention, close.
+- Signage issues without ICEing reports -> not urgent, close; think about the signage layout as a whole.
 - Never fill Bolt forms with invented data. Fix the correction code instead, or ask the user.
 - Never type credentials.
 - Report every ticket that could not be closed, with the exact SCA message.
 - Amenity tickets (toilets clogged/out of order, lounge, coffee machine, fridge): older than 1 week -> close with `Resolved.`; 1 week old or less -> forward the case to Björn Jantjes (BK World, bjoern.jantjes@bk-group.eu). Still confirm the list with the user before closing.
 - PO released but no intervention date -> chase the vendor on the existing email thread (reply all) and quote the PO number and amount.
 - One email per company: never put vendors from different companies in the same email (to, cc or bcc), even when several companies are consulted on the same topic. Colleagues of the same company can be in copy.
-- Emails to landlords: always leave them as drafts for the user to review, never send directly. Subject `Tesla | <Site>, <Country> | <Issue>`, written in French for French and Belgian sites.
+- Emails to landlords: send from superchargerhost (shared_mailbox), Baran in cc. Subject `Tesla | <Site>, <Country> | <Issue>`, written in French for French and Belgian sites.

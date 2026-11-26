@@ -57,4 +57,21 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Narbonne, Montmarault | PR issued | notes added | -
 - Lesquin | draft to Bansar asking status | draft recreated with signature + photo | -
 - Pre-departure | open all, explain the problem, download photos myself | 19 tickets reviewed, photos in Desktop\SCA, Grid forms readable | always look at photos: categories are often wrong.
+- Poitiers Sud | mail Robin: 2 bins burnt, replace with the Rodez bins (3) | sent on 09/11 thread with GSF photos | reuse stock from cancelled jobs.
+- Workflow | "tout automatiquement, je n'ai pas à y toucher", keep full history (interactions, actions, corrections, closed tickets) to train recommendations, SCA notes in English | history/ folder + save.ps1 + autonomy rules | RULE.
+- Sources | IP = TRT SuC France.xlsx; LL contacts = mails/superchargerhost then OneDrive\Asset Management\Cursor\SCA (site_contacts, rai-responses, site health) | site_lookup.ps1 | -
+- Cleanliness | "propreté = LL sauf sites avec vendor de nettoyage" | RULE | -
+- Aire-sur-l'Adour | 3D checked, recent sessions, close | close (pending SCA login) | -
+- Dardilly Nord | close, followed with BK | close (pending) | -
+- Montauban | OK with reco (one off) | close (pending) | -
+- Sénas | mail Björn + Stefan Maier: bin not well fixed, what is the hole next to it? | sent (by parallel session 16:51) | BK amenity site.
+- Deauville | Circet for brush clearing | sent to Robin (parallel session) | -
+- Champfleury | close, techs should clean leaves | close (pending) | -
+- Poulet de Bresse | site closing next year, close | close (pending) | -
+- Saint-Chamond | Circet (Robin) + Benoît Collé | 2 separate mails sent (parallel session) | one mail per company.
+- Ussac | signage position is the issue, all or nothing, no ICEing, close not urgent | close (pending) | -
+- Pontarlier | no intervention if lighting works | close lighting ticket (pending) | -
+- Megève | check recent extension, quote Circet + Michel Oribe for lines | no extension (opened 12/2022, IP OTI); 2 RFQs sent (parallel session) | -
+- Chilly-Mazarin | when? find LL for cleanliness; IP for quote | opened 26/03/2026, inspection 17/11; LL GIE RMF mail sent (cc fixed t.ors@grandfrais.fr, photos added); R2 (IP, Romain Robinet) mail sent with 3 photos, warranty first | site < 1 year: IP / warranty first.
+- Pending drafts | Gallargues, Lesquin, Brussels sent (automation rule) | sent | -
 - Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -
