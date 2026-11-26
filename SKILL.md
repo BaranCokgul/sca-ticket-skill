@@ -30,7 +30,8 @@ The goal is to handle SCA tickets autonomously over time.
 ## 0a. Autonomy (Baran, 26/11/2026)
 
 "Je veux que tout soit fait automatiquement, que je n'ai pas à y toucher."
-- When Baran gives an instruction, execute it end to end: send the emails (vendors from his mailbox, LLs from superchargerhost), close tickets, add notes, update files. Do not leave drafts for him to send and do not ask for approval.
+- When Baran gives an instruction, execute it end to end: send vendor / internal emails, close tickets, add notes, update files. Do not ask for approval for those.
+- **Exception, LL emails (26/11/2026, "fais-moi relire les mails au LL")**: prepare them in superchargerhost Drafts (signature + photos), show the full text in the chat, and send only after Baran approves.
 - When he says "OK with your reco", apply the recommendation fully.
 - Only ask when information is genuinely missing (unknown contact, ambiguous site) and cannot be found in the sources below.
 - Before sending anything, check Sent items and Drafts (main + superchargerhost) from the last hours: another session or Baran may already have done it. Reuse an existing draft (fix it, add photos) instead of creating a duplicate.
@@ -254,4 +255,4 @@ Factual record of what was done, to reuse as worked examples. Decisions here are
 - Amenity tickets (toilets clogged/out of order, lounge, coffee machine, fridge): older than 1 week -> close with `Resolved.`; 1 week old or less -> forward the case to Björn Jantjes (BK World, bjoern.jantjes@bk-group.eu). Still confirm the list with the user before closing.
 - PO released but no intervention date -> chase the vendor on the existing email thread (reply all) and quote the PO number and amount.
 - One email per company: never put vendors from different companies in the same email (to, cc or bcc), even when several companies are consulted on the same topic. Colleagues of the same company can be in copy.
-- Emails to landlords: send from superchargerhost (shared_mailbox), Baran in cc. Subject `Tesla | <Site>, <Country> | <Issue>`, written in French for French and Belgian sites.
+- Emails to landlords: draft in superchargerhost (shared_mailbox), Baran in cc, show it to Baran and send only after his OK. Subject `Tesla | <Site>, <Country> | <Issue>`, written in French for French and Belgian sites.

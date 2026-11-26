@@ -20,3 +20,4 @@ Format: `date | context | what I did / proposed | correction | rule derived`
 - 26/11 | SCA notes | some notes/templates in French | "tous les commentaires SCA en anglais" | SCA notes always in English.
 - 26/11 | Pontarlier bin | proposed to close | 'envoie à Robin pour devis pour remettre' | a bin out of its support is equipment to re-fix, not cosmetic: RFQ, do not close.
 - 26/11 | Carcassonne | proposed the site IP for graffiti | 'Arthur Silva (Dynamic) + Robin' | for graffiti/cleaning works, consult Dynamic (maintenance vendor) and Circet.
+- 26/11 | LL emails | sent LL emails directly under the automation rule (Rivesaltes, Chilly, Gallargues, Lesquin, Brussels) | 'fais-moi relire les mails au LL' | LL emails: draft + show in chat, send after OK. Vendor/internal emails: send directly.

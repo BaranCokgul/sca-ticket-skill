@@ -242,3 +242,7 @@ Format:
 
 ## Other open tickets without action yet (25/11/2026)
 Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarlier x2, Deauville, Tournus, Riom, Rivesaltes (stones), Carcassonne (vandalism), Le Touquet, Poulet de Bresse, Tossiat, Moulins-lès-Metz, Saint-Chamond, Chilly-Mazarin x2, Champfleury, Sénas x2 (AC555307A7F072 is really snack vending machines, to close/reassign), Gallargues x3, Aire-sur-l'Adour. Out of scope, to reassign: Tanger AC555307BA5820, Psathopyrgos AC55530803B673. Mons: kept open by user.
+
+## Le Touquet-Paris-Plage, France
+- IP: SPIE (Benoist Lecomte), opened 04/2023, parking site.
+- 26/11/2026: AC555307F303CD sign leaning -> relocate behind the charger. RFQ Circet (Robin Fourton) + SPIE (Benoît Colle).

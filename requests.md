@@ -83,3 +83,6 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Mails | check for news | R2: Chilly gate under 1-year warranty; Gallargues LL started procedure + gendarmerie; notes added | -
 - Rodez | comment with lawyer update | EN note (free loan for use not transferred, cadastre, mortgage records AV 183 / AW 153, liquidator) | -
 - Schedule | restart 3x/day check, must restart even after PC off | timer with catch-up + Windows scheduled task reminder (StartWhenAvailable + logon) | headless not possible (no CLI, cloud cannot reach local MCP).
+- LL emails | 'fais-moi relire les mails au LL' | RULE: LL drafts shown before sending | -
+- Gallargues | 'top, update les tickets' | note on AC555308051A4B; FYI note on open auto ticket AC555308114D51 (field team: not faulty, abandoned car); AC55530810D25C already cancelled | update all sibling tickets of a site.
+- Le Touquet | Robin + contact of the company that built the site, sign behind the post | IP = SPIE (TRT, Benoist Lecomte); sent to Robin (Circet) + Benoît Colle (SPIE) separately | when asked for 'the IP', use our usual contact at that company.
