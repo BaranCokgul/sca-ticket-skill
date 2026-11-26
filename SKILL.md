@@ -48,6 +48,7 @@ The goal is to handle SCA tickets autonomously over time.
 ## 0b. Scheduled email review (9:00, 13:00, 16:00, weekdays)
 
 Requested by Baran on 26/11/2026. A local PowerShell timer (started in the chat, see "Start the timer" below) prints `AGENT_LOOP_TICK_sca_review` at each slot. On each tick:
+0. If `history/pending_sca.md` has lines and SCA is logged in, process them first (close / notes), then empty the file.
 1. Read `.last_review` in this skill folder (ISO time of the previous review; default: 8 h ago).
 2. `MailSearch` the main mailbox and `shared_mailbox: superchargerhost@tesla.com` with `received_after` = that time, `top` 50, fields subject/from/receivedDateTime/bodyPreview. Ignore outage permits, invoices, newsletters and threads with no site in `sites.md` or the dashboard.
 3. For each vendor or LL reply about an open ticket, read the body if needed and act:
