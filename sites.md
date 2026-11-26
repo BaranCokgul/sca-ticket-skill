@@ -226,6 +226,14 @@ Format:
 - Champfleury AC55530810EDF1: dead leaves piled under/around cabinets in the technical zone.
 - Montauban AC555308144475: bin full, a little litter (created 26/11).
 
+## Poitiers Sud, France
+- Cleaning vendor on site: GSF Athena Poitiers - Christine Rogeon (crogeon@gsf.fr, +33 6 07 27 51 54). Reports bin damage by email.
+- 09/11/2026: 1st bin burnt (bottom). Quote asked to Circet (Robin Fourton) same day, no reply.
+- 26/11/2026: 2nd bin burnt. Draft reply to Robin (09/11 thread): replace both with 2 of the 3 bins delivered for Rodez (stored at Circet Plaisance-du-Touch since the Rodez job was cancelled), quote for transport + removal + install. Photos in Desktop\SCA\Poitiers Sud.
+
+## Rodez (Château de Fontanges), France
+- New owner (Mehdi Smaine, 06 77 20 54 09) refused the kiosk works and bins (19-23/11). Bin install cancelled; Circet keeps the bins in stock at Plaisance -> reuse elsewhere (Poitiers Sud).
+
 ## Brussels (Docks Bruxsel), Belgium
 - LL: Docks Bruxsel - Richard Matterazzo (Technical & Facilities Director, r.matterazzo@docksbruxsel.be, +32 484 441 829), Stephan Bartholomeus (Shopping Center Manager). Barrier code 5000. Vendor line painting: Reeload (Guilhem Verstraeten), done 21/09.
 - 27/10/2026: keypad reported to LL; 02/11 Bartholomeus "no malfunction on our side".

@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Site, [string]$Filter = '*', [int]$Cell = 420, [int]$Cols = 3)
+param([Parameter(Mandatory)][string]$Site, [string]$Filter = '*', [int]$Cell = 420, [int]$Cols = 3, [string]$Out = '')
 Add-Type -AssemblyName System.Drawing
 $src = Join-Path "C:\Users\bcokgul\OneDrive - Tesla\Desktop\SCA" $Site
 $files = @(Get-ChildItem $src -File -Filter $Filter | Where-Object { $_.Extension -match '^\.(jpe?g|png)$' } | Sort-Object Name)
@@ -18,7 +18,7 @@ for ($i = 0; $i -lt $files.Count; $i++) {
   $g.DrawString([string]($i + 1), $font, [System.Drawing.Brushes]::Yellow, ($i % $Cols) * $Cell + 6, [Math]::Floor($i / $Cols) * $Cell + 4)
   $img.Dispose()
 }
-$out = Join-Path $env:TEMP ("sca_preview\montage_{0}.jpg" -f ($Site -replace '[^\w-]', '_'))
+$out = if ($Out) { $Out } else { Join-Path $env:TEMP ("sca_preview\montage_{0}.jpg" -f ($Site -replace '[^\w-]', '_')) }
 New-Item -ItemType Directory -Force -Path (Split-Path $out) | Out-Null
 $sheet.Save($out, [System.Drawing.Imaging.ImageFormat]::Jpeg)
 $g.Dispose(); $sheet.Dispose()
