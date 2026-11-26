@@ -1,0 +1,37 @@
+# User requests log
+
+Every instruction Baran gives on SCA tickets, with the decision and the outcome. Purpose: learn his patterns to handle tickets autonomously. When the same kind of decision appears 2-3 times, propose it as a rule (he validates before it goes into "Rules" in SKILL.md).
+
+Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern / lesson`
+
+## 25/11/2026
+- Rivesaltes, Narbonne | close duplicates | closed F-0154 | duplicates on same site/issue: close the newest.
+- ICEing (6 tickets) | close, keep Mons | closed | one-off decision, NOT a rule (user said so).
+- Cesson | "ferme en disant que ça a été réglé" | closed "Issue resolved" | user's word is enough evidence.
+- Falaise | vendor contacted? if not, 3 separate mails R2 / Robin / Michel Oribe, Circet built the site (Arnaud Bureau) | 3 RFQs with photos | safety issue with no vendor: RFQ to several vendors in parallel, the builder's contact in cc.
+- Saint-Parres, Laxou | check last exchanges, chase quoting the PO number | reply_all on existing thread with both POs | rule po_chase.
+- Brest | there is a thread, ask the question | reply_all on thread | always reuse the existing thread.
+- Montmarault | chase Robin, no quote yet to raise PO | draft | chase quote on thread.
+- Chasse | PO validated, ask Robin for a date | reply_all with PO + amount | rule po_chase.
+- Narbonne | chase Robin, Benoit Collé, separate mail to Michel Oribe, ask Frédéric Job if he works in France | 3 mails | see 26/11 correction.
+- Saint Contest | PO released to remove the WC, chase | reply on R2 thread | "WC" = Wall Connector.
+- Montélimar | chase vendor | reply_all with PO | rule po_chase.
+- Senlis | close, retrofit | closed | issues covered by a planned retrofit: close.
+- Rivesaltes stickers | close (Service closed it) + mail EV Connexion: stop, formal notice reserved | closed + mail | third-party stickers: firm warning email, no accusation.
+- Bègles | mail LL to check the drain and stop recurrence | mail from superchargerhost | site infrastructure owned by LL: ask LL.
+- Beauvais | escalate to field teams, Lighting (Restored), check poles next visit | escalated | lighting check: escalate to field teams.
+- Rouen | close, no action, checked with LL | closed | -
+- Arc, Poitiers Sud, Mâcon, Magnant | close if > 1 week else forward Björn | closed `Resolved.` | rule amenity.
+- Bruxelles | look for LL thread in superchargerhost | none found | -
+- Roissy | find LL parking thread, propose a mail (1h not 15 min, bug?) | user had already sent it | check Sent before drafting; Avenue du Bois de la Pie = Van der Valk.
+- Verviers | draft (not send) to the 3 Valk contacts, check the contract | draft + lease art. 1.1 | LL emails: draft only, check the lease first.
+- Futuroscope | assign to Tim to check access | assigned | navigation/access: Tim Oster.
+- All | update every ticket that has news | 10 notes | -
+- Emails | add my signature and the ticket photos, no button to press | done | every draft: signature + photos.
+
+## 26/11/2026
+- All drafts | approved 1-5, 7-14; Montmarault not mentioned | 13 sent | only send what is explicitly approved; ask about the rest.
+- Narbonne | "ne mets jamais deux prestataires d'entreprises différentes dans le même mail" ; "un mail par entreprise, même si plusieurs pour le même sujet" | Benoit (SPIE) removed from Circet mail, added cc to SPIE mail | RULE validated.
+- EV Connexion | remove the "possible scam" sentence | removed, sent | do not repeat customer suspicions to third parties.
+- Verviers | "j'ai déjà envoyé un mail non ?" | nothing found in Sent / superchargerhost, draft kept | search Sent + superchargerhost before drafting to a LL.
+- Tracking | track all my requests and the site history so you learn to manage SCA tickets on your own | created requests.md + sites.md | -

@@ -13,6 +13,15 @@ Ticket: `https://serviceapp.tesla.com/service/service-home/activity-detail/<AC..
 
 JS snippets referenced below are in [reference.md](reference.md).
 
+## 0. Memory (always)
+
+The goal is to handle SCA tickets autonomously over time.
+- **Before acting**: read [sites.md](sites.md) for the sites involved (past issues, vendors, POs, LL answers) and [requests.md](requests.md) for how Baran decided similar cases. Propose actions based on them.
+- **After each user instruction**: append it to `requests.md` (date, site, request, action, pattern).
+- **After each action** (close, note, escalation, email sent, vendor/LL reply found): append a dated line to the site in `sites.md`, and create the site section if missing.
+- When the same decision appears 2-3 times in `requests.md`, propose it as a rule. It goes into "Rules" only after Baran validates it.
+- Commit and push the skill at the end of each session.
+
 ## 1. Login
 
 1. `browser_tabs list`, then `browser_navigate` to the dashboard.
@@ -156,6 +165,7 @@ Factual record of what was done, to reuse as worked examples. Decisions here are
 - Beauvais lighting: escalated to field teams, code `Site level - Lighting (Restored)`, narrative "check the lighting poles at next visit".
 - Poitiers Futuroscope navigation: assigned to Tim Oster with a note.
 - Dated notes added on 10 tickets from vendor emails (Antwerp, Kortrijk, Le Bosc x2, Gap, Montmarault, Brest, Chasse, Montélimar, Caen).
+- 26/11: 13 emails sent after approval (Montmarault and Verviers held). Narbonne mail to Circet re-done without SPIE. SCA notes pending (session expired, user must log in).
 - Emails drafted (16): Falaise RFQ to R2 / Circet / SPIE separately (no vendor contacted yet), PO follow-ups citing PO numbers on existing threads (Saint-Parres, Laxou, Chasse, Montélimar), quote chasers (Brest, Montmarault), Narbonne to Circet+SPIE / SPIE / Facility Partner, R2 Caen WC removal check, EV Connexion sticker warning, Bègles drain to Klépierre LL, Roissy (Van der Valk Paris CDG, Avenue du Bois de la Pie) and Verviers (Valk, contract art. 1.1 open 24/7) kept as drafts for user review.
 
 ## Rules
@@ -166,5 +176,5 @@ Factual record of what was done, to reuse as worked examples. Decisions here are
 - Report every ticket that could not be closed, with the exact SCA message.
 - Amenity tickets (toilets clogged/out of order, lounge, coffee machine, fridge): older than 1 week -> close with `Resolved.`; 1 week old or less -> forward the case to Björn Jantjes (BK World, bjoern.jantjes@bk-group.eu). Still confirm the list with the user before closing.
 - PO released but no intervention date -> chase the vendor on the existing email thread (reply all) and quote the PO number and amount.
-- Never put vendors from different companies in the same email (to, cc or bcc). One email per company; colleagues of the same company can be in copy.
+- One email per company: never put vendors from different companies in the same email (to, cc or bcc), even when several companies are consulted on the same topic. Colleagues of the same company can be in copy.
 - Emails to landlords: always leave them as drafts for the user to review, never send directly. Subject `Tesla | <Site>, <Country> | <Issue>`, written in French for French and Belgian sites.
