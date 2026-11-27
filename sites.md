@@ -268,3 +268,8 @@ Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarl
 - Tickets: AC55530801A04A charging stalls blocked (ICEing, multiple reports, kept open by Baran). 52 RAI in 6 months, 54% stalls blocked.
 - 06/2026: 16 bays repainted green (CKS, Mark Mengels).
 - 27/11/2026: Baran: gentle LL mail with photo asking them to handle it. Draft in superchargerhost (to Tiffany, cc Mathieu + Baran, photo 14/11), text posted in the SCA bot channel; Baran OK, sent 27/11. SCA note added.
+
+## Carcassonne, France
+- Tickets: AC555307F23385 marker graffiti on transformer kiosk doors (waiting vendor)
+- 26/11/2026: RFQs sent separately to Dynamic (Arthur Silva, cc teslamaintenance@dynamiceu.com) and Circet (Robin Fourton), with photo.
+- 27/11/2026: Arthur Silva acknowledged, quote to follow. SCA note added.
