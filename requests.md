@@ -88,3 +88,5 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Le Touquet | Robin + contact of the company that built the site, sign behind the post | IP = SPIE (TRT, Benoist Lecomte); sent to Robin (Circet) + Benoît Colle (SPIE) separately | when asked for 'the IP', use our usual contact at that company.
 - 27/11 review | 'relance le check journalier' | timer restarted, mails + dashboard (32, no new); Chilly cleanliness closed, Rivesaltes note, Tossiat LL draft for review | -
 - Tossiat | not LL; ask Robin, Frédéric, SPIE for brush clearing, photos, update ticket | Circet + SPIE sent, ticket note; Frédéric held (declined France 26/11), LL draft removed | landscaping: check lease before LL.
+- Teams | send me questions on Teams during reviews, no Cursor on phone | self-chat 48:notes (SendChatMessage), replies read at each review; Nova bot cannot post there | rule 0b step 6.
+- Antwerp | done by Facility Partner | closed, Reeload informed | -
