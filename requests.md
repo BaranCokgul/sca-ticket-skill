@@ -86,3 +86,4 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - LL emails | 'fais-moi relire les mails au LL' | RULE: LL drafts shown before sending | -
 - Gallargues | 'top, update les tickets' | note on AC555308051A4B; FYI note on open auto ticket AC555308114D51 (field team: not faulty, abandoned car); AC55530810D25C already cancelled | update all sibling tickets of a site.
 - Le Touquet | Robin + contact of the company that built the site, sign behind the post | IP = SPIE (TRT, Benoist Lecomte); sent to Robin (Circet) + Benoît Colle (SPIE) separately | when asked for 'the IP', use our usual contact at that company.
+- 27/11 review | 'relance le check journalier' | timer restarted, mails + dashboard (32, no new); Chilly cleanliness closed, Rivesaltes note, Tossiat LL draft for review | -
