@@ -93,3 +93,4 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Teams notifs | team 'SCA - Bot' created by Baran; Nova posts there (phone notifs) | test posted, rule 0b step 6 | -
 - Event-driven | 'notif quand quelque chose change' | quick check every 15 min 08-19 weekdays (no Outlook COM on new Outlook) | rule 0b step 7.
 - Event trigger | 'récupérer les notifications teams/outlook pour activer le skill' + push GitHub | notif_read.ps1 (wpndatabase via winsqlite3) + watcher in review_timer (30 s), watch_keywords.txt, quick check down to 60 min; tested with fake Teams toast | rule 0b step 7.
+- Teams chat | 'quand j'envoie un msg sur le chat il faudrait que tu puisses me répondre' | teams_read.ps1 (Teams IndexedDB cache) + chat tick in timer, reply via Nova in thread | rule 0b step 9.

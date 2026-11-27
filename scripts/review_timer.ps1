@@ -12,6 +12,9 @@ $quickFile = Join-Path $root '.last_quick'
 $notifIdFile = Join-Path $root '.last_notif_id'
 $kwFile = Join-Path $root 'watch_keywords.txt'
 $notifReader = Join-Path $PSScriptRoot 'notif_read.ps1'
+$teamsReader = Join-Path $PSScriptRoot 'teams_read.ps1'
+$teamsSeenFile = Join-Path $root '.seen_teams_ids'
+$chatPrompt = 'Message de Baran dans le canal Teams SCA bot (details ci-dessous). Lis le fil avec ListChannelMessages (team c7392c17-827b-46f9-a22f-5a1397e62231, canal SCA bot channel), fais ce qu il demande selon le skill sca-tickets, puis reponds-lui dans le meme fil avec SendMessageAsNova (reply_to_message_id = id du message racine).'
 $watchedApps = 'OutlookForWindows|MSTeams|Outlook'
 
 function Get-LastSlot([datetime]$now) {
@@ -40,6 +43,12 @@ function Esc([string]$s) { ($s -replace '[\r\n"\\]', ' ').Trim() }
 function Tick { Write-Output ('AGENT_LOOP_TICK_sca_review {"prompt":"' + $prompt + '"}') }
 function QuickTick { Write-Output ('AGENT_LOOP_TICK_sca_quick {"prompt":"' + $quickPrompt + '"}') }
 function EventTick([string]$detail) { Write-Output ('AGENT_LOOP_TICK_sca_event {"prompt":"' + $eventPrompt + ' ' + (Esc $detail) + '"}') }
+function ChatTick([string]$detail) { Write-Output ('AGENT_LOOP_TICK_sca_chat {"prompt":"' + $chatPrompt + ' ' + (Esc $detail) + '"}') }
+
+# Seed the Teams cursor so that only messages posted after start-up trigger a reply.
+if (-not (Test-Path $teamsSeenFile)) {
+  try { @(& $teamsReader) | ForEach-Object { $_.Id } | Set-Content $teamsSeenFile } catch { Set-Content $teamsSeenFile '' }
+}
 
 # Seed the notification cursor so that only toasts arriving after start-up are considered.
 if (-not (Test-Path $notifIdFile)) {
@@ -68,6 +77,16 @@ while ($true) {
       }
     }
   } catch {}
+  # Chat watcher: Baran's own posts in the SCA channel never raise a toast, so read the Teams cache (every 30 s).
+  try {
+    $seenIds = @(Get-Content $teamsSeenFile -ErrorAction SilentlyContinue | Where-Object { $_ })
+    $newMsgs = @(& $teamsReader | Where-Object { $seenIds -notcontains [string]$_.Id })
+    if ($newMsgs.Count) {
+      $newMsgs | ForEach-Object { [string]$_.Id } | Add-Content $teamsSeenFile
+      ChatTick (($newMsgs | ForEach-Object { 'id {0} (fil {1}) : {2}' -f $_.Id, $_.ParentId, $_.Text }) -join ' || ')
+    }
+  } catch {}
+
   if ($pending.Count -and ($now - $lastEventTick).TotalSeconds -ge $eventDebounceSec) {
     EventTick (($pending | Select-Object -First 5) -join ' || ')
     $pending.Clear()
