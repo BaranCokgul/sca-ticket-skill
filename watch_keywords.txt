@@ -69,3 +69,11 @@ Supercharger
 SCA
 RFQ
 devis
+# Contact names (toast title = sender name)
+CITEAU
+Vatbled
+Robinet
+Cosentini
+Wohrmann
+Tiffany
+Schodel

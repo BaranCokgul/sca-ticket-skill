@@ -52,6 +52,7 @@ Format:
 - Pre-visit done, waiting for quote. 18/11/2026 Robin asked Jeremi for the quote.
 - 26/11/2026: quote chased on the thread.
 - 27/11/2026: Baran (Teams SCA bot channel): lighting fixed, caused by a breaker in the TGBT. Ticket AC555306D62CCE closed; Circet (Jeremi + Robin) told the quote is no longer needed.
+- 27/11/2026: Jeremi Citeau confirmed Circet was on site today (kiosk install) and fixed the issue (thanks to Christophe Monjaret).
 
 ## Bruxelles, Belgium
 - Tickets: barrier keypad out of order (open)
