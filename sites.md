@@ -256,3 +256,4 @@ Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarl
 - 27/11/2026 Poitiers Sud bins: Robin quote Monday; only 1 Rodez bin received at Circet - asks to ship the extra bins to Circet Plaisance (no SCA ticket).
 - 27/11/2026 Antwerp: closed (Facility Partner did it). Reeload (G. Verstraeten, R. Seeldrayers) told quote no longer needed.
 - 27/11/2026 Sénas: BK (Björn) following up. Narbonne: FP quote FP26-0398, FP entity extension to Tesla France in progress.
+- 27/11/2026 Lesquin: Novotel technical manager Christian Lys (H0427-TE@accor.com) confirmed branches cut -> AC555307B3E857 closed.

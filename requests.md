@@ -90,3 +90,5 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Tossiat | not LL; ask Robin, Frédéric, SPIE for brush clearing, photos, update ticket | Circet + SPIE sent, ticket note; Frédéric held (declined France 26/11), LL draft removed | landscaping: check lease before LL.
 - Teams | send me questions on Teams during reviews, no Cursor on phone | self-chat 48:notes (SendChatMessage), replies read at each review; Nova bot cannot post there | rule 0b step 6.
 - Antwerp | done by Facility Partner | closed, Reeload informed | -
+- Teams notifs | team 'SCA - Bot' created by Baran; Nova posts there (phone notifs) | test posted, rule 0b step 6 | -
+- Event-driven | 'notif quand quelque chose change' | quick check every 15 min 08-19 weekdays (no Outlook COM on new Outlook) | rule 0b step 7.

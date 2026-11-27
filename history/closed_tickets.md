@@ -40,3 +40,4 @@ Format: `date | site | AC | issue | closing note (EN) | why / who decided`
 - 26/11 | Moulins-lès-Metz | AC555307FE12C3 | 'site clean up' with no detail/photo | 'Site clean up' request with no description and no picture. Nothing actionable. Closing. | Baran: close, no picture
 - 27/11 | Chilly-Mazarin | AC555308051933 | Cleanliness (LL scope) | LL GIE RMF confirmed area in their contract, contractor chased | review rule: LL takes it on
 - 27/11 | Antwerp | AC55530726C39A | Landscaping / trees | Done by Facility Partner (PO #5101645032), Baran confirmed; Reeload told not needed | Baran
+- 27/11 | Lesquin | AC555307B3E857 | Overgrown landscaping (pine branches) | Novotel (Christian Lys) confirmed branches cut | review rule: LL confirms fix
