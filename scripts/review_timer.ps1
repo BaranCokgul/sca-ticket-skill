@@ -1,3 +1,8 @@
+# Only one watcher may run: an orphan from a previous chat would consume the Teams/toast cursors and print ticks nobody sees.
+Get-CimInstance Win32_Process -Filter "Name='powershell.exe' or Name='pwsh.exe'" |
+  Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -match 'review_timer\.ps1' } |
+  ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+
 $slots = @('09:00', '13:00', '16:00')
 $quickEveryMin = 60
 $quickStart = [TimeSpan]::Parse('08:00')
