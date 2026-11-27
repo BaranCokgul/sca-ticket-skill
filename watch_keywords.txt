@@ -1,0 +1,72 @@
+# One keyword per line (case-insensitive). A new Outlook/Teams toast whose sender, subject or preview
+# contains one of them triggers an immediate SCA event check. Keep in sync with the open tickets.
+# Vendors / partners
+Circet
+FOURTON
+SPIE
+COLLE
+ORIBE
+R2
+r2e2
+Reeload
+Facility Partner
+BK
+Jantjes
+Dynamic
+Silva
+Adema
+Sereshgi
+Citeos
+# Landlords / site contacts
+Maerten
+Bansar
+Novotel
+Grand Frais
+GIE RMF
+Offelman
+Allouche
+Duval
+Cocco
+Docks
+GCA
+Frey
+# Sites with open tickets
+Saint-Parres
+Vendenheim
+Aalst
+Laxou
+Brest
+Gap
+Montmarault
+Le Bosc
+Kortrijk
+Chasse
+Narbonne
+Falaise
+Megève
+Megeve
+Montélimar
+Montelimar
+Pontarlier
+Deauville
+Rodez
+Fontanges
+Rivesaltes
+Sénas
+Senas
+Carcassonne
+Touquet
+Brussels
+Bruxelles
+Tossiat
+Saint-Chamond
+Mons
+Chilly
+Gallargues
+Poitiers
+# Generic
+Superchargeur
+Supercharger
+SCA
+RFQ
+devis
