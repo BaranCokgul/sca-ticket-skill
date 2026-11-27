@@ -98,3 +98,4 @@ Format: `dd/mm/yyyy | Site | Request (his words, short) | Action taken | Pattern
 - Startup | 'premier truc quand tu te connectes, tu checkes tous les mails/Teams reçus (aussi sur le chat)' + how to view the chat + response times | section 00 in SKILL.md; teams_read.ps1 fixed (2nd cache layout) | rule 00.
 - Mons / Vendenheim / Aalst | (Teams SCA bot 15:43) Mons: gentle LL mail with photo; Vendenheim: last LL contact?; Aalst: last interaction? | Mons LL draft (superchargerhost) posted for approval; Vendenheim: no LL exchange, Citeos via Neil 18/09; Aalst: Accor no reply since 02/11 chase; chases proposed | -
 - Mons / Aalst / Vendenheim | (Teams 15:50) 'Ok pour Mons avec photo, relance gentiment Aalst, relance Citeos' | Mons LL mail sent + note; Citeos chased + note; Aalst LL chase drafted, posted for OK (LL rule) | -
+- SCA notes | remove the [date] prefix, SCA already shows the date | SKILL.md + reference.md updated | rule: no date prefix.

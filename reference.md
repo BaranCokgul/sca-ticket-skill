@@ -65,7 +65,7 @@ b.click();await sleep(4000);return 'clicked close, total before '+tot})()
 Waits for the ticket to load, skips if the note already exists, waits 5 s, saves, polls 20 s. Returns `saved`, `already there`, `not ready` or `not confirmed`.
 
 ```js
-(async()=>{const id='AC...';const note='[dd/mm/yyyy] ...';const sleep=ms=>new Promise(r=>setTimeout(r,ms));let t;
+(async()=>{const id='AC...';const note='...';const sleep=ms=>new Promise(r=>setTimeout(r,ms));let t;
 for(let i=0;i<30;i++){if(document.body.innerText.includes(id)){t=[...document.querySelectorAll('textarea')].find(x=>x.placeholder&&x.placeholder.startsWith('Add additional'));if(t)break;}await sleep(1000);}
 if(!t)return 'not ready';if(document.body.innerText.includes(note.slice(0,50)))return 'already there';
 await sleep(5000);t.click();t.focus();t.value=note;t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}));await sleep(1500);

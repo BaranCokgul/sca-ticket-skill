@@ -107,7 +107,7 @@ Requested by Baran on 26/11/2026. A local PowerShell timer (started in the chat,
 
 ## 3. Add an internal work note
 
-On the ticket page, fill the textarea with placeholder "Add additional internal work notes." and click **Save Activity** (the small icon button next to the field is a filter, not submit). Verify that the note appears under "Internal Work Notes". Notes are written in English, prefixed `[dd/mm/yyyy]`.
+On the ticket page, fill the textarea with placeholder "Add additional internal work notes." and click **Save Activity** (the small icon button next to the field is a filter, not submit). Verify that the note appears under "Internal Work Notes". Notes are written in English, **without a date prefix** (SCA already shows the date under each note; Baran, 27/11/2026).
 - Wait ~5 s after the activity panel has loaded before filling the note: a save done right after load clears the textarea without saving.
 - Never retry blindly: poll up to 20 s for the note to appear, and if it does not, reload the ticket and check before re-adding (a quick retry created a duplicate note on Montmarault).
 
@@ -120,7 +120,7 @@ On the ticket page, fill the textarea with placeholder "Add additional internal 
 4. To remove Baran: `browser_fill` the search box with `""` to show the full list again, fresh screenshot, untick "Baran Cokgul" by mouse.
 5. Add the note in the textarea and click **Save Activity** via JS (the dropdown can stay open). The save also commits the owner change.
 6. Verify: read the text after "Preparation Owner" in `document.body.innerText`; it must list only the new owner.
-- Note template: `[dd/mm/yyyy] Hi <first name>, <what you need / answer>. Assigning the ticket (back) to you. Thanks!`
+- Note template: `Hi <first name>, <what you need / answer>. Assigning the ticket (back) to you. Thanks!`
 - Owners by topic: navigation, access code, entrance or site description -> **Tim Oster** (toster, Charging Nav / UI / Site Maps). Greece, Spain and other Southern Europe sites -> **Andrea Van der Aalst** (avanderaalst, Sr. Market AM Southern Europe). Morocco is in Baran's scope (do not transfer).
 - When Tim asks a question in the notes (e.g. "is access code X correct?"), answer in the note and make Tim sole owner again.
 - A transferred ticket leaves Baran's dashboard ("Total Records" drops by 1).
