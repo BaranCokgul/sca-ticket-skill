@@ -250,3 +250,7 @@ Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarl
 - 27/11/2026 Rivesaltes: new LL property manager Doris Cocco (dcocco@groupeduval.com, Groupe Duval) - P. Dupont forwarded. Note on AC555307E234DA.
 - 27/11/2026 Tossiat: LL = GCA Trans (Arthur Pic, arthur.pic@gcatrans.com). Draft in superchargerhost for Baran's review (green spaces, AC555307FA76B3).
 - 27/11/2026 Tossiat: LL does NOT maintain green spaces. RFQ brush clearing sent to Circet (Robin Fourton) + SPIE (M. Oribe, B. Colle). Facility Partner on hold (no France activity).
+- 27/11/2026 Le Touquet: SPIE (B. Colle) quote in progress.
+- 27/11/2026 Saint-Chamond: SPIE (B. Colle) quote in progress.
+- 27/11/2026 Rodez: Adema (P. Sereshgi) will also contact the liquidator.
+- 27/11/2026 Poitiers Sud bins: Robin quote Monday; only 1 Rodez bin received at Circet - asks to ship the extra bins to Circet Plaisance (no SCA ticket).
