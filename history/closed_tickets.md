@@ -41,3 +41,4 @@ Format: `date | site | AC | issue | closing note (EN) | why / who decided`
 - 27/11 | Chilly-Mazarin | AC555308051933 | Cleanliness (LL scope) | LL GIE RMF confirmed area in their contract, contractor chased | review rule: LL takes it on
 - 27/11 | Antwerp | AC55530726C39A | Landscaping / trees | Done by Facility Partner (PO #5101645032), Baran confirmed; Reeload told not needed | Baran
 - 27/11 | Lesquin | AC555307B3E857 | Overgrown landscaping (pine branches) | Novotel (Christian Lys) confirmed branches cut | review rule: LL confirms fix
+- 27/11 | Brest | AC555306D62CCE | Lighting out | Caused by a breaker in the TGBT, lighting working again; Circet told quote not needed | Baran (Teams SCA bot channel)

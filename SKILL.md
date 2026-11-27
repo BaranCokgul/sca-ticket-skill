@@ -13,6 +13,28 @@ Ticket: `https://serviceapp.tesla.com/service/service-home/activity-detail/<AC..
 
 JS snippets referenced below are in [reference.md](reference.md).
 
+## 00. Startup: first thing in EVERY session (Baran, 27/11/2026)
+
+"Premier truc quand tu te connectes, tu checkes tous les mails/Teams reçus (aussi sur le chat)." Do this before answering anything else, even if the first message is about something else:
+1. **Timer**: check the terminals folder; if `review_timer.ps1` is not running, start it (see 0b, "Start the timer").
+2. **SCA bot channel (the chat)**: `ListChannelMessages` with `include_replies: true` (team `c7392c17-827b-46f9-a22f-5a1397e62231`, channel `19:HguLtlDj-MhEZ5WNBzm9Xcykbhk_oKHRONSZKwRoypI1@thread.tacv2`). Every message or reply from Baran (author_id `064f7f49-19a4-473c-91a6-859a9bf5ff45`) newer than my last post in that thread is an instruction not yet handled: do it, then answer in the same thread. Also list my own unanswered questions still waiting for him.
+3. **Mails**: `MailSearch` main mailbox + `shared_mailbox: superchargerhost@tesla.com` since `.last_quick` (or `.last_review` if later), apply 0b.
+4. **Teams chats**: `ListChats` (limit 20) and read the ones with a new message since `.last_quick` that mention a site, vendor or LL of `watch_keywords.txt`.
+5. Process `history/pending_sca.md`, then write `.last_quick`, save (`scripts/save.ps1`), and post one summary in the SCA bot channel only if something changed.
+
+**How Baran reads / writes the chat**: Teams (PC or phone) > team **"SCA - Bot"** > channel **"SCA bot channel"**. My posts come from the Nova bot ("Sent by Baran Cokgul" footer), which triggers his phone notification. He answers by replying in the thread of a message, or with a new post. His own posts never raise a toast: they are caught by `scripts/teams_read.ps1` (Teams local cache) and by step 2 above.
+
+**Response times (commitment)**
+| Trigger | Detection | Answer |
+| --- | --- | --- |
+| Baran writes in the SCA bot channel | ~30 s (chat tick) while the PC is on with this Cursor chat open | do the action and reply in the thread within ~5 min; if it takes longer (SCA login, photos), post "je m'en occupe" first |
+| Mail / Teams toast with a watched keyword | ~30 s + 2 min debounce (event tick) | ticket updated + Teams post within ~10 min |
+| Missed toast (focus mode, notifications off) | hourly quick check 08:00-19:00 weekdays | same |
+| Scheduled reviews | 09:00 / 13:00 / 16:00 weekdays | full report |
+| PC off or chat closed | nothing runs | caught up by step 00 at the next session |
+
+Never leave a message from Baran in the chat without an answer: if I cannot act (SCA logged out, missing info), say so in the thread.
+
 ## 0. Memory (always)
 
 The goal is to handle SCA tickets autonomously over time.
@@ -64,7 +86,7 @@ Requested by Baran on 26/11/2026. A local PowerShell timer (started in the chat,
    - Requires Outlook desktop notifications ON (Outlook > Settings > General > Notifications > "Show desktop notifications"; Windows Settings > System > Notifications > Outlook ON) and Teams notifications ON. Toasts only exist while the PC is on and unlocked/asleep-not-off.
    - Test: fire a toast with AUMID `MSTeams_8wekyb3d8bbwe!MSTeams` via `ToastNotificationManager` containing a keyword; an event tick appears within ~40 s (verified 27/11/2026).
 8. **Fallback quick check (every 60 min, 08:00-19:00 weekdays, tick `AGENT_LOOP_TICK_sca_quick`)**: in case a toast was missed (notifications off, focus mode). `MailSearch` both mailboxes since `.last_quick`, read the Teams channel; act only on mails about open tickets, notify on Teams; write `.last_quick`. Do not reload the full dashboard. No relevant mail -> stop silently.
-9. **Chat with Baran (tick `AGENT_LOOP_TICK_sca_chat`, within ~30 s)**: his own posts never raise a toast, so `scripts/teams_read.ps1` scans the new-Teams IndexedDB cache (`...\MSTeams\EBWebView\WV2Profile_tfw\IndexedDB\https_teams.microsoft.com_0.indexeddb.leveldb`, `.log` + recent `.ldb`, latin1 view of V8 records) for messages in the SCA channel whose creator is `8:orgid:064f7f49-19a4-473c-91a6-859a9bf5ff45`; ids already handled are in `.seen_teams_ids`. On a chat tick: read the thread with `ListChannelMessages`, do what he asks (same rules as in the Cursor chat, LL emails still need his OK), answer in the same thread with `SendMessageAsNova` + `reply_to_message_id` (root message id). Requires Teams desktop running on the PC (it fills the cache).
+9. **Chat with Baran (tick `AGENT_LOOP_TICK_sca_chat`, within ~30 s)**: his own posts never raise a toast, so `scripts/teams_read.ps1` scans the new-Teams IndexedDB cache (`...\MSTeams\EBWebView\WV2Profile_tfw\IndexedDB\https_teams.microsoft.com_0.indexeddb.leveldb`, `.log` + recent `.ldb`, latin1 view of V8 records) for messages in the SCA channel whose creator is `8:orgid:064f7f49-19a4-473c-91a6-859a9bf5ff45`; ids already handled are in `.seen_teams_ids`. Two record layouts exist (message records, and "lastMessage" records whose content is a UTF-16 string before `conversationLink ...;messageid=<root>" version "<id>"`); the reader handles both (layout B was missed until 27/11, so the Brest request of 15:07 went unanswered). On a chat tick: read the thread with `ListChannelMessages`, do what he asks (same rules as in the Cursor chat, LL emails still need his OK), answer in the same thread with `SendMessageAsNova` + `reply_to_message_id` (root message id). Requires Teams desktop running on the PC (it fills the cache).
 - Timer notify pattern: `^AGENT_LOOP_TICK_sca_(review|quick|event|chat)`.
 - If SCA asks for login or Outlook is down, report it and retry at the next slot. Never type credentials.
 - Start the timer at the start of EVERY SCA session (check the terminals folder first so it is not started twice): `Shell` with `block_until_ms: 0` and `notify_on_output` pattern `^AGENT_LOOP_TICK_sca_(review|quick|event|chat)`, running `scripts/review_timer.ps1`. It polls every 30 s and ticks as soon as a slot has passed without a review (`.last_review` older than the last slot), so missed slots (PC off, asleep, chat closed) are caught up immediately.
