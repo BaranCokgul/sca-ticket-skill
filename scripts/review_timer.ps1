@@ -16,6 +16,8 @@ $teamsReader = Join-Path $PSScriptRoot 'teams_read.ps1'
 $teamsSeenFile = Join-Path $root '.seen_teams_ids'
 $chatPrompt = 'Message de Baran dans le canal Teams SCA bot (details ci-dessous). Lis le fil avec ListChannelMessages (team c7392c17-827b-46f9-a22f-5a1397e62231, canal SCA bot channel), fais ce qu il demande selon le skill sca-tickets, puis reponds-lui dans le meme fil avec SendMessageAsNova (reply_to_message_id = id du message racine).'
 $watchedApps = 'OutlookForWindows|MSTeams|Outlook'
+# Toast title = sender; our own mails (Baran in cc, superchargerhost copies) must not wake the skill.
+$selfSenders = '^(superchargerhost|Baran Cokgul)\b'
 
 function Get-LastSlot([datetime]$now) {
   for ($d = 0; $d -le 7; $d++) {
@@ -70,7 +72,7 @@ while ($true) {
     if ($new.Count) {
       Set-Content $notifIdFile ([string](($new | Measure-Object Id -Maximum).Maximum))
       $kws = Get-Keywords
-      foreach ($n in ($new | Where-Object { $_.App -match $watchedApps } | Sort-Object Id)) {
+      foreach ($n in ($new | Where-Object { $_.App -match $watchedApps -and $_.Title -notmatch $selfSenders } | Sort-Object Id)) {
         $text = "$($n.Title) $($n.Body)"
         $hit = $kws | Where-Object { $text -match ('(?i)(^|\W)' + [regex]::Escape($_) + '(\W|$)') } | Select-Object -First 1
         if ($hit) { $pending.Add(('[{0}] {1} : {2} (mot-cle {3})' -f ($n.App -replace '_.*', ''), $n.Title, $n.Body, $hit)) }
