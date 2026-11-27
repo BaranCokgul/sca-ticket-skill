@@ -14,8 +14,8 @@ Format:
 - Tickets: AC55530602C72C lighting (waiting vendor)
 - 27/10/2026: lighting PO validated (PO 44137339).
 - 23/11/2026: temporary site closure declared. It was the Fuzed kiosk maintenance (Fuzed informed the hotel), not the lighting.
-- LL: Accor hotel, Philippe Cosentini (Philippe.COSENTINI@accor.com), GM box H3155-GM@accor.com. Thread superchargerhost "Tesla | Supercharger Aalst, Belgium | Iceing": 27/10 PO (SA Lovely) sent + intervention date asked, 02/11 chased, no reply since.
-- 27/11/2026: proposed to chase Philippe (waiting Baran's answer).
+- LL: Accor hotel, Philippe Cosentini (Philippe.COSENTINI@accor.com), GM box H3155-GM@accor.com. Thread superchargerhost "Tesla | Supercharger Aalst, Belgium | Iceing": 27/10 PO (SA Lovely) sent + intervention date asked, 02/11 chased; Philippe replied 02/11: electrician ordered the parts, date to follow.
+- 27/11/2026: Baran OK to chase gently; draft in superchargerhost (reply to Philippe, Baran cc), posted in SCA bot for approval.
 
 ## Antwerp, Belgium
 - Vendor: Facility Partner (Frédéric Job).
@@ -181,7 +181,7 @@ Format:
 - Tickets: lighting (~387 days) (waiting vendor)
 - 17/09/2026: Citeos visit. No update since.
 - 18/09/2026: Neil Laroudie sent site plans + luminaire model to Anne Lang (Citeos, anne.lang@citeos.com) for new lighting poles. No LL (Frey) exchange on lighting; LL contact Jonas Schodel (Frey, centre manager), only about Fuzed kiosk maintenance (30/10).
-- 27/11/2026: Baran asked for the last LL contact; proposed to chase Citeos with Neil in cc (waiting his answer).
+- 27/11/2026: Citeos chased on Neil's thread (Anne Lang, cc Neil + Bruno Dupouy). SCA note added.
 
 ## Verviers, Belgium
 - LL: Valk hotel, Nicolas Poncin (Nicolas.Poncin@valkliege.be), F. Breuer (f.breuer@valkwallonie.com), direction@hotelverviers.be.
@@ -267,4 +267,4 @@ Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarl
 - LL: Van der Valk Hotel Mons, Tiffany Knight (communication, tiffany.knight@hotelmons.eu), Mathieu Wohrmann (GM), Neal Wohrmann (location manager).
 - Tickets: AC55530801A04A charging stalls blocked (ICEing, multiple reports, kept open by Baran). 52 RAI in 6 months, 54% stalls blocked.
 - 06/2026: 16 bays repainted green (CKS, Mark Mengels).
-- 27/11/2026: Baran: gentle LL mail with photo asking them to handle it. Draft in superchargerhost (to Tiffany, cc Mathieu + Baran, photo 14/11), text posted in the SCA bot channel for approval.
+- 27/11/2026: Baran: gentle LL mail with photo asking them to handle it. Draft in superchargerhost (to Tiffany, cc Mathieu + Baran, photo 14/11), text posted in the SCA bot channel; Baran OK, sent 27/11. SCA note added.
