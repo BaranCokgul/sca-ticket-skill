@@ -249,3 +249,4 @@ Pre-departure inspections, mostly minor: Ussac, Megève x2, Dardilly x2, Pontarl
 - 27/11/2026 Chilly-Mazarin: S. Allouche + L. Offelman (GIE RMF) confirmed zone in contract, chased contractor -> AC555308051933 closed. Empty reply draft 'RE: Chilly' sits in Baran's Drafts (09:22).
 - 27/11/2026 Rivesaltes: new LL property manager Doris Cocco (dcocco@groupeduval.com, Groupe Duval) - P. Dupont forwarded. Note on AC555307E234DA.
 - 27/11/2026 Tossiat: LL = GCA Trans (Arthur Pic, arthur.pic@gcatrans.com). Draft in superchargerhost for Baran's review (green spaces, AC555307FA76B3).
+- 27/11/2026 Tossiat: LL does NOT maintain green spaces. RFQ brush clearing sent to Circet (Robin Fourton) + SPIE (M. Oribe, B. Colle). Facility Partner on hold (no France activity).
